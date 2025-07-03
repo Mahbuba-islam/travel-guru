@@ -10,7 +10,6 @@
 </head>
 <body>
     <!-- header -->
-     
      <div class="relative  bg-[url('/images/Rectangle-1.png')]
  bg-cover bg-center w-full bg-opacity-25  ">
        <!-- Overlay -->
@@ -74,17 +73,20 @@
   <!-- hero section -->
    <section class="container mx-auto flex relative z-10 my-12 justify-between">
     <!-- hero-content -->
-    <div class="text-white  space-y-2 ">
-    <h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">Cox's bazar</h1>
+    <div id="hero-content" class="text-white  space-y-2 ">
+    <!-- <h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">Cox's bazar</h1>
     <p class="text-xs md:text-sm w-[455px] font-bold">Cox's Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. 
         It is famous mostly for its long natural sandy beach, and it ...</p>
-    <button class="btn btn-warning font-bold text-black">Booking</button>
+    <button id="bookingId" class="btn btn-warning font-bold text-black">Booking</button> -->
     </div>
     <!-- caropsoul -->
-    <div class="w-1/2">
+    <div  class=" w-1/2">
    <div class="carousel rounded-lg space-x-4 ">
   <div id="item-1" class="carousel-item w-[200px]  h-[350px] relative">
-    <h1 class="absolute bottom-5 left-5 text-white font-bold text-xl z-10">Cox's bazar</h1>
+    <h1 class="absolute bottom-5 left-5 text-white font-bold text-xl z-10">Coxs bazar</h1>
+    <p class="hidden">Coxs Bazar, nestled along the southeastern coast of Bangladesh, is home to the world’s longest natural sea beach, 
+      stretching over 120 kilometers along the Bay of Bengal
+ </p>
     <img
       src="/images/Rectangle-1.png"
       class="rounded-lg object-cover"/>
@@ -93,12 +95,18 @@
   
 <div id="item-3" class="carousel-item w-[200px]  h-[350px] relative ">
     <h1 class="absolute bottom-5 left-5 font-bold text-white text-xl">Sreemongol</h1>
+    <p class="hidden">Sreemangal, often called the “tea capital of Bangladesh,” is a lush,
+       tranquil town nestled in the Sylhet division. It's famed for its rolling tea gardens, misty hills, and rich biodiversity. 
+</p>
     <img
       src="/images/Sreemongol.png"
       class="rounded-lg" />
   </div>
   <div id="item-5" class="carousel-item w-[200px]  h-[350px] relative">
      <h1 class="absolute bottom-5 left-5 font-bold text-white text-xl">Sundorbon</h1>
+     <p class="hidden">The Sundarbans is a spellbinding natural wonder—the largest mangrove forest in the world, straddling the delta region of Bangladesh and eastern India where the Ganges, Brahmaputra, and Meghna rivers meet the Bay of Bengal.
+     </p>
+    
     <img
       src="/images/sundorbon.png"
       class="rounded-lg" />
@@ -118,5 +126,9 @@
 
      </div>
     
+
+    <script src="/js/index.js"></script>
+    <script src="./booking.html"></script>
 </body>
+ 
 </html>
