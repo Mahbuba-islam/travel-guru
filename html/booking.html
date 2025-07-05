@@ -81,10 +81,10 @@
     <div class="w-1/2 ">
    <fieldset class="fieldset bg-white rounded-box w-xs p-7 mb-5 space-y-3">
  <label class="label">Origin</label>
-  <input type="text" class="input border-0 bg-gray-200"  />
+  <input id="origin-input" type="text" class="input border-0 bg-gray-200" required />
 
   <label class="label">Destination</label>
-  <input type="text" class="input border-0 bg-gray-200" />
+  <input id="destination-input" type="text" class="input border-0 bg-gray-200" required/>
     <!-- calender -->
      <div>
        <div class="flex items-center justify-between space-x-4 my-4">
@@ -92,14 +92,14 @@
           <div class="" >
           <label class="label">Form</label>
             <div class="input border-0 bg-gray-200 mt-2">
-          <input type="text">
+          <input id="displayDate" type="text">
         <!-- calender -->
 <!-- Button to open the modal -->
-<label for="calendar-modal" class="text-white"><img class="w-4" src="/images/icons/calender_icon.png" alt="">
+<label for="modal-calender" class="text-white"><img class="w-4" src="/images/icons/calender_icon.png" alt="">
 </label>
 
 <!-- Modal toggle checkbox -->
-<input type="checkbox" id="calendar-modal" class="modal-toggle" />
+<input type="checkbox" id="modal-calender" class="modal-toggle" />
 
 <!-- The modal -->
 <div class="modal">
@@ -107,7 +107,7 @@
     <h3 class="font-bold text-lg mb-4">Select a Date</h3>
 
     <!-- Calendar component -->
-    <calendar-date class="cally" onchange="document.getElementById('dateDisplay').value = this.value">
+    <calendar-date class="cally" onchange="document.getElementById('displayDate').value = this.value">
       <svg slot="previous" class="size-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M15.75 19.5 8.25 12l7.5-7.5" />
       </svg>
@@ -119,7 +119,7 @@
 
     <!-- Close modal button -->
     <div class="modal-action">
-      <label for="calendar-modal" class="btn">Done</label>
+      <label for="modal-calender" class="btn">Done</label>
     </div>
     </div>
    </div>
@@ -130,12 +130,12 @@
        <!-- to -->
      <div>
     <label class="label">To</label>
-    
-       <div class="input border-0 bg-gray-200 mt-2 ">
-        <input type="text">
+        
+       <div class="input border-0 bg-gray-200 mt-2 text-xs">
+        <input id="dateDisplay" type="text" class="w-full text-xs" readonly placeholder="No date selected" />
         <!-- calender -->
 <!-- Button to open the modal -->
-<label for="calendar-modal" class="text-white"><img class="w-4" src="/images/icons/calender_icon.png" alt="">
+<label for="calendar-modal" class="text-white"><img  class="w-4" src="/images/icons/calender_icon.png" alt="">
 </label>
 
 <!-- Modal toggle checkbox -->
@@ -156,6 +156,10 @@
       </svg>
       <calendar-month></calendar-month>
     </calendar-date>
+    
+    <!-- Display selected date -->
+   
+
 
     <!-- Close modal button -->
     <div class="modal-action">
@@ -168,21 +172,26 @@
   
  </div>
    
-   
-  <button class="btn btn-warning">Start Booking</button>
+
+  <button onclick="showModal()" class="btn btn-warning">Start Booking</button>
+  <!-- Open the modal using ID.showModal() method -->
+
+<dialog id="start_booking" class="modal">
+  
+</dialog>
    
 </fieldset>
 
   </div>
   
-</div>
+
 
 
 
   
   
    
-</div>
+
 
 <!-- <div class=" flex space-x-3 mt-4 items-center">
       <a href="#item-4" class="btn btn-circle">❮</a>
@@ -194,10 +203,10 @@
 
      </div>
 
-      <script src="/js/index.js"></script>
+      <!-- <script src="/js/index.js"></script> -->
       <script src="/js/booking.js"></script>
-     <script type="module" src="https://unpkg.com/cally"></script>
-    
-    
+     <script type="module" src="https://unpkg.com/cally"></script> 
+     <!-- <script src="/js/login.js"></script> -->
+     
 </body>
 </html>

@@ -29,12 +29,6 @@ carouselItems.forEach(i => {
      })
 
 
-    
-
-
-        //  window.location.href = `/html/booking.html?destination=${destination}`
-        //  const destinationContainer = document.getElementById('destinationContainer')
-        //  destinationContainer.innerText =  destination
     })
    
 })
@@ -62,5 +56,17 @@ const navigateBooking = (destination,destinationDetails) => {
     
 
 }
+
+const loginBtn = document.getElementById('login-btn')
+loginBtn.addEventListener('click', () => {
+ window.location.href = '/html/login.html'
+})
+const params = new URLSearchParams(window.location.search);
+const userNameFromURL = params.get('user');
+console.log(userNameFromURL);
+loginBtn.innerText = userNameFromURL.slice(0,1).toUpperCase()
+loginBtn.classList.add('rounded-full')
+
+
 
 

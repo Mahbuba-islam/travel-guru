@@ -12,12 +12,13 @@
     <!-- header -->
      <!-- navbar -->
       <nav class="text-black relative z-20 container mx-auto">
-        <div class="navbar ">
+        <div class="navbar">
   <div class="navbar-start my-4">
      <!-- dropdown menu -->
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> 
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
       <ul
         tabindex="0"
@@ -69,22 +70,22 @@
       <fieldset class="fieldset  rounded-box max-w-md p-7 mb-9 space-y-3 container mx-auto border border-spacing-8 border-solid">
          <h1 class="font-bold text-lg">create an account</h1>
  <label class="label">Frist Name</label>
-  <input type="text" class="input border-1 bg-gray-300"  />
+  <input type="text" class="input border-1 bg-gray-300" required/>
  <label class="label">last name</label>
-  <input type="text" class="input border-1 bg-gray-300"  />
+  <input type="text" class="input border-1 bg-gray-300" required/>
  <label class="label">user name or email</label>
-  <input type="text" class="input border-1 bg-gray-300"  />
- <label class="label">password</label>
-  <input type="text" class="input border-1 bg-gray-300"  />
+  <input type="text" class="input border-1 bg-gray-300" required/>
+ <label class="label" >password</label>
+  <input type="number" class="input border-1 bg-gray-300" required />
  
   <label class="label">confirm password</label>
-  <input type="text" class="input border-1 bg-gray-300" />
- <button class="btn btn-warning">create account</button>
+  <input type="number" class="input border-1 bg-gray-300" required />
+ <button id="create-account" class="btn btn-warning">create account</button>
   <div class="flex items-center space-x-2">
     <label class="label">
     Already have an account?
   </label>
-<h1 class="text-warning ">Login</h1> 
+<h1 class="text-warning">Login</h1> 
 </div>
 </div>
    
@@ -108,6 +109,8 @@
    </section>
 
      </div>
-    
+   
+     
+     <script src="/js/create.js"></script>
 </body>
 </html>
