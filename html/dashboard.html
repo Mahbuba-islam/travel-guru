@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="flex items-start space-x-8 p-6 container mx-auto my-6">
+  <!-- Left Content -->
+  <div class="flex-1 space-y-2">
+    <h2 class="text-xl mb-2 font-bold">MyDashboard</h2>
+      <h2 class="text-xl font-semibold mb-2">Settings</h2>
+    <button id="logout" class="btn ">logout</button>
+      <p class="text-success font-bold ">Your booking details</p>
+      <p id="back-home" class="btn btn-warning">Back to home page</p>
+  </div>
+ 
+  <!-- Right Content -->
+  <div class="">
+     <p>welcome <span id="user-id"></span></p>
+   
+  </div>
+</div>
+
+
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

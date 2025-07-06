@@ -61,11 +61,21 @@ const loginBtn = document.getElementById('login-btn')
 loginBtn.addEventListener('click', () => {
  window.location.href = '/html/login.html'
 })
+
+
 const params = new URLSearchParams(window.location.search);
+console.log(params)
 const userNameFromURL = params.get('user');
 console.log(userNameFromURL);
-loginBtn.innerText = userNameFromURL.slice(0,1).toUpperCase()
+if(userNameFromURL){
+ loginBtn.innerText = userNameFromURL.slice(0,1).toUpperCase()
 loginBtn.classList.add('rounded-full')
+}
+else{
+    loginBtn.innerText = 'login'
+    loginBtn.classList.remove('rounded-full')
+}
+
 
 
 

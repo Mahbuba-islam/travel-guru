@@ -11,6 +11,7 @@ document.getElementById('login-id').addEventListener('click', () => {
   } else {
     const userNameValue = userNameInput.value;
     console.log(userNameValue)
-    window.location.href = `/html/index.html?user=${userNameValue}`;
+    // window.location.href = `/html/index.html?user=${userNameValue}`;
+    window.location.href = `/html/dashboard.html?user=${userNameValue}`;
   }
 });
