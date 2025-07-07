@@ -1,8 +1,4 @@
 
-// const bookingId = document.getElementById('bookingId')
-// bookingId.addEventListener('click', () => {
-//     window.location.href = '/html/booking.html'
-// })
 
 const carouselItems = document.querySelectorAll('.carousel-item')
 
@@ -58,22 +54,73 @@ const navigateBooking = (destination,destinationDetails) => {
 }
 
 const loginBtn = document.getElementById('login-btn')
-loginBtn.addEventListener('click', () => {
+const loginFunction = () => {
+  loginBtn.innerText = 'login'
+    loginBtn.classList.remove('rounded-full')
+    loginBtn.addEventListener('click', () => {
  window.location.href = '/html/login.html'
 })
-
-
-const params = new URLSearchParams(window.location.search);
-console.log(params)
-const userNameFromURL = params.get('user');
-console.log(userNameFromURL);
-if(userNameFromURL){
- loginBtn.innerText = userNameFromURL.slice(0,1).toUpperCase()
-loginBtn.classList.add('rounded-full')
 }
+
+
+const activeUserData = localStorage.getItem('activeSession')
+console.log(activeUserData)
+
+const userInfo = JSON.parse(activeUserData)
+if(userInfo){
+    const navbarEnd = document.getElementById('navbarEnd')
+    // const dropdown = document.getElementById('dropdown')
+   navbarEnd.innerHTML = `
+    <div id="dropdown" class="dropdown">
+  <div tabindex="0" role="button" class="btn m-1 rounded-full btn-warning font-bold text-white">${userInfo.firstName.slice(0,1).toUpperCase()}</div>
+  <ul tabindex="0" class="dropdown-content menu bg-warning rounded-box z-1 shadow-sm space-y-2">
+    <li id="dashboard" class="font-bold text-xs"><a>Dashboard</a></li>
+    <li id="logout" class="font-bold btn btn-xs"><a>Logout</a></li>
+  </ul>
+  </div>
+`
+ // Attach event listeners after DOM updates
+  setTimeout(() => {
+    const dashboardBtn = document.getElementById('dashboard');
+    const logoutBtn = document.getElementById('logout');
+
+    if (dashboardBtn) {
+      dashboardBtn.addEventListener('click', () => {
+        window.location.href = `/html/dashboard.html?user=${userInfo}`;
+      });
+    }
+    
+
+
+ if (logoutBtn) {
+  logoutBtn.addEventListener('click', () => {
+  localStorage.removeItem('activeSession')
+    // Reset login button styles & text
+    loginBtn.className = 'btn btn-warning font-bold text-black';
+    loginBtn.innerText = 'login';
+    // loginBtn.tabIndex = 0;
+    // loginBtn.role = 'button';
+
+    // Clear any dropdown content
+    loginBtn.innerHTML = 'login'; // if dropdown was inserted before
+
+    // Reattach login button click handler
+    loginBtn.onclick = () => {
+      window.location.href = '/html/login.html';
+    };
+
+    // If you're replacing loginBtn in the navbar, use outerHTML cautiously
+    navbarEnd.innerHTML = '';
+    navbarEnd.appendChild(loginBtn); // preserve reference
+  });
+}  }, 0);
+}
+
+
+
 else{
-    loginBtn.innerText = 'login'
-    loginBtn.classList.remove('rounded-full')
+   loginFunction()
+   console.log(loginFunction())
 }
 
 

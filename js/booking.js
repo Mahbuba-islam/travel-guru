@@ -1,4 +1,7 @@
   
+
+
+
    const booking = () => {
     const params = new URLSearchParams(window.location.search)
     console.log(params)
@@ -70,9 +73,20 @@ const showModal = () => {
       </div>`;
     dialog.showModal();
   }
+  const bookingData = {
+ origin:originInput,
+ destination:destinationInput,
+ dataForm:displayDateForm,
+ dateTo: displayDateTo,
+ 
+
+}
+localStorage.setItem('bookingInfo', JSON.stringify(bookingData))
+console.log(bookingData)
 };
 
 const goToLogin = () => {
   window.location.href = '/html/login.html'
   
 }
+

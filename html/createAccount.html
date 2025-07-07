@@ -47,7 +47,7 @@
       <path d="m21 21-4.3-4.3"></path>
     </g>
   </svg>
-  <input type="search" required placeholder="Search your destination" class="text-black text-xs"/>
+  <!-- <input type="search" required placeholder="Search your destination" class="text-black text-xs"/> -->
 </label>
      <!-- menu -->
   <div class="navbar-center hidden lg:flex">
@@ -70,16 +70,16 @@
       <fieldset class="fieldset  rounded-box max-w-md p-7 mb-9 space-y-3 container mx-auto border border-spacing-8 border-solid">
          <h1 class="font-bold text-lg">create an account</h1>
  <label class="label">Frist Name</label>
-  <input type="text" class="input border-1 bg-gray-300" required/>
- <label class="label">last name</label>
-  <input type="text" class="input border-1 bg-gray-300" required/>
+  <input type="text"  name="firstName" class="input border-1 bg-gray-300" required/>
+ <label class="label" >last name</label>
+  <input type="text" name="lastName" class="input border-1 bg-gray-300" required/>
  <label class="label">user name or email</label>
-  <input type="text" class="input border-1 bg-gray-300" required/>
+  <input type="text" name="email" class="input border-1 bg-gray-300" required/>
  <label class="label" >password</label>
-  <input type="number" class="input border-1 bg-gray-300" required />
+  <input type="number" name="password"  class="input border-1 bg-gray-300" required />
  
   <label class="label">confirm password</label>
-  <input type="number" class="input border-1 bg-gray-300" required />
+  <input type="number" name="confirmPassword"  class="input border-1 bg-gray-300" required />
  <button id="create-account" class="btn btn-warning">create account</button>
   <div class="flex items-center space-x-2">
     <label class="label">

@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <div class="flex items-start space-x-8 p-6 container mx-auto my-6">
-  <!-- Left Content -->
-  <div class="flex-1 space-y-2">
-    <h2 class="text-xl mb-2 font-bold">MyDashboard</h2>
-      <h2 class="text-xl font-semibold mb-2">Settings</h2>
-    <button id="logout" class="btn ">logout</button>
-      <p class="text-success font-bold ">Your booking details</p>
-      <p id="back-home" class="btn btn-warning">Back to home page</p>
-  </div>
- 
-  <!-- Right Content -->
-  <div class="">
-     <p>welcome <span id="user-id"></span></p>
-   
-  </div>
-</div>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div class="container mx-auto my-10 px-6">
 
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8">
+     <h1 class="text-2xl font-bold text-indigo-600 flex space-x-2 items-center"><img class="w-6 h-6 mx-2 "
+       src="/images/icons/dashboard.png" alt="">My Dashboard</h1>
+      <div class="flex items-center gap-4">
+        <p class="text-sm">Welcome, <span id="Welcome-msg" class="font-semibold text-indigo-700"></span></p>
+        <button id="logout" class="btn btn-outline btn-error btn-sm">Logout</button>
+      </div>
+    </div>
 
-<script src="/js/dashboard.js"></script>
+    <!-- Main Content -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Left Panel -->
+      <div class="space-y-6">
+        <!-- Settings Card -->
+        <div class="bg-white rounded-xl shadow p-6">
+          <h2 class="text-lg font-semibold text-gray-700 mb-4"><img class="w-6 h-6 mx-2 "
+       src="/images/icons/icons8-settings-32.png" alt=""> Settings</h2>
+          <button id="booking-id" class="btn btn-primary w-full"> <img class="w-6 h-6 mx-2 "
+       src="/images/icons/list.png" alt=""> View Booking Details</button>
+        </div>
+
+        <!-- Back Navigation -->
+        <div class="bg-white rounded-xl shadow p-6">
+          <h2 class="text-sm text-gray-500 mb-2">Finished here?</h2>
+          <p id="back-home" class="btn btn-warning w-full"> <img class="w-6 h-6 mx-2 "
+       src="/images/icons/icons8-back-arrow-48.png" alt=""> Back to Home</p>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="text-lg font-semibold text-gray-700 mb-4"> <img class="w-6 h-6 mx-2 "
+       src="/images/icons/icons8-pushpin-48.png" alt=""> Booking Preview</h2>
+        <p class="text-gray-600 text-sm">Click "View Booking Details" to see your saved travel information. Once loaded, it’ll appear in the modal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Details Modal -->
+  <dialog id="booking_modal" class="modal"></dialog>
+
+  <script src="/js/dashboard.js"></script>
 </body>
 </html>
