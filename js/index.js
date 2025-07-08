@@ -75,7 +75,7 @@ const loginFunction = () => {
 })
 }
 
-const activeUserData = localStorage.getItem('activeSession')
+const activeUserData = localStorage.getItem('loggedInUser')
 console.log(activeUserData)
 
 const userInfo = JSON.parse(activeUserData)
@@ -108,7 +108,7 @@ if(userInfo){
 
  if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
-  localStorage.removeItem('activeSession')
+  localStorage.removeItem('loggedInUser')
     // Reset login button styles & text
     loginBtn.className = 'btn btn-warning font-bold text-black';
     loginBtn.innerText = 'login';

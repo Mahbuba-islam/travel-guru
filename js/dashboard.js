@@ -16,12 +16,12 @@ if (activeUserEmail) {
 
 
 const logout = document.getElementById('logout').addEventListener('click', () => {
-  localStorage.removeItem('activeSession')
+  localStorage.removeItem('loggedInUser')
  window.location.href = `/html/index.html`
 })
 
 document.getElementById('back-home').addEventListener('click', () => {
-  localStorage.setItem('activeSession', activeUserEmail )
+  localStorage.setItem('loggedInUser', activeUserEmail )
  window.location.href = '/html/index.html'
 })
 

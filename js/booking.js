@@ -1,4 +1,4 @@
-   const activeUserData = localStorage.getItem('activeSession')
+   const activeUserData = localStorage.getItem('loggedInUser')
 console.log(activeUserData)
 const user = JSON.parse(activeUserData)
  const userTravelDetails = localStorage.getItem('travelInfo')
@@ -77,21 +77,19 @@ const showModal = () => {
 
   
   else {
-   // Fallback if you don’t use SweetAlert2
-  if (confirm("To book, you need to log in first.\nClick OK to go to login.")) {
-   goToLogin();
-   }
-
-
+  const loginToast = document.getElementById('loginToast')
+  loginToast.classList.remove('hidden')
+ 
+  localStorage.setItem("redirectAfterLogin", window.location.href)
+  document.getElementById('redirectLogin').addEventListener('click', () => {
+    goToLogin()
+  })
 }
 
 function goToLogin() {
   window.location.href = '/html/login.html';
 }
-
-
- 
-  const bookingData = {
+ const bookingData = {
  origin:originInput,
  destination:destinationInput,
  dataForm:displayDateForm,
@@ -133,24 +131,12 @@ if(user){
  if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
   localStorage.removeItem('activeSession')
-  navbarEnd.childNodes.classList.remove('dropdown')
-    // Reset login button styles & text
-    // loginBtn.className = 'btn btn-warning font-bold text-black';
-    // loginBtn.innerText = 'login';
-    // // loginBtn.tabIndex = 0;
-    // // loginBtn.role = 'button';
-
-    // // Clear any dropdown content
-    // loginBtn.innerHTML = 'login'; // if dropdown was inserted before
-
-    // // Reattach login button click handler
-    // loginBtn.onclick = () => {
-    //   window.location.href = '/html/login.html';
-    // };
-
-    // // If you're replacing loginBtn in the navbar, use outerHTML cautiously
-    // navbarEnd.innerHTML = '';
-    // navbarEnd.appendChild(loginBtn); // preserve reference
+ navbarEnd.innerHTML = ''
+ navbarEnd.innerHTML = `<a id="logIn" class="btn btn-warning font-bold text-black">Login</a>`
+ document.getElementById('logIn').addEventListener('click', () => {
+   window.location.href = '/html/login.html'
+ })
+   
   });
 }  }, 0);
 }

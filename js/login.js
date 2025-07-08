@@ -3,7 +3,7 @@ document.getElementById('login-id').addEventListener('click', () => {
   const passwordInput = document.getElementById('password');
   const userNameValue = userNameInput.value.trim();
   const loginPassword = passwordInput.value.trim();
-
+  const redirectUrl = localStorage.getItem('redirectAfterLogin')
   const accountData = localStorage.getItem(userNameValue);
   console.log(accountData)
   const accountInfo = accountData ? JSON.parse(accountData) : null;
@@ -28,6 +28,15 @@ document.getElementById('login-id').addEventListener('click', () => {
       email: userNameValue,
     };
     localStorage.setItem("loggedInUser", JSON.stringify(userData));
-    window.location.href = '/html/dashboard.html';
+    
   }
+if(redirectUrl){
+localStorage.removeItem('redirectAfterLogin')
+window.location.href = redirectUrl
+}
+else{
+window.location.href = '/html/dashboard.html';
+}
+
 });
+

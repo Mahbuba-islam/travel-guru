@@ -77,6 +77,13 @@
     <div id="destination-container" class="text-white  space-y-2 ">
    
     </div>
+    <!-- if no user, then show this toast -->
+    <div id="loginToast" class="toast toast-top toast-end hidden">
+  <div class="alert alert-warning">
+    <span>To book, you need to log in first.</span>
+    <button id="redirectLogin" class="btn btn-sm btn-outline ml-4" >Log in</button>
+  </div>
+</div>
     <!-- booking form -->
     <div class="w-1/2 ">
    <fieldset class="fieldset bg-white rounded-box w-xs p-7 mb-5 space-y-3">
