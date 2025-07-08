@@ -1,16 +1,16 @@
 
-const activeUserEmail = localStorage.getItem('activeSession'); // Who's logged in
-const accountData = localStorage.getItem(activeUserEmail); // Retrieve their info
-
-if (accountData) {
-  const accountInfo = JSON.parse(accountData);
+const activeUserEmail = localStorage.getItem('loggedInUser'); // Who's logged in
+// const accountData = localStorage.getItem(activeUserEmail); // Retrieve their info
+console.log(activeUserEmail)
+if (activeUserEmail) {
+  const accountInfo = JSON.parse(activeUserEmail);
 
   // Example: show greeting
-  document.getElementById('Welcome-msg').textContent = `Welcome back, ${accountInfo.firstName}!`;
+  document.getElementById('Welcome-msg').textContent = `Welcome back, ${accountInfo.name}!`;
 } else {
   // Optional fallback
-  console.log('No active session found. Redirecting to login...');
-  window.location.href = '/html/login.html';
+  // console.log('No active session found. Redirecting to login...');
+  // window.location.href = '/html/login.html';
 }
 
 
@@ -21,7 +21,7 @@ const logout = document.getElementById('logout').addEventListener('click', () =>
 })
 
 document.getElementById('back-home').addEventListener('click', () => {
-  localStorage.setItem('activeSession', accountData )
+  localStorage.setItem('activeSession', activeUserEmail )
  window.location.href = '/html/index.html'
 })
 

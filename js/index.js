@@ -20,7 +20,15 @@ carouselItems.forEach(i => {
      const bookingBtn = document.querySelectorAll('.booking-btn')
      bookingBtn.forEach(b => {
         b.addEventListener('click' , () => {
-        navigateBooking(destination,destinationDetails)
+          const travelDetails = {
+           destinationName:destination,
+           detailsDestination:destinationDetails,
+           
+          }
+          console.log(userInfo)
+          localStorage.setItem('travelInfo', JSON.stringify(travelDetails) )
+          window.location.href = '/html/booking.html'
+        // navigateBooking(destination,destinationDetails)
      })
      })
 
@@ -38,20 +46,25 @@ const removeBorder = () => {
     })
 }
 
-const navigateBooking = (destination,destinationDetails) => {
-    window.location.href = `/html/booking.html?destination=${destination}&&details=${destinationDetails}`
+
+
+// const navigateBooking = () => {
+//   const userTravelDetails = {
+//     origin:destination,
+//     originDetails:destinationDetails,
+//     user:userInfo
+//   }
+//   console.log(userTravelDetails)
+//   localStorage.setItem('userTravelInfo', JSON.stringify(userTravelDetails))
+//     // window.location.href = '/html/booking.html'
    
-//      const destinationContainer = document.getElementById('destination-container')
-//     const div = document.createElement('div')
-//     div.innerHTML = ` <h1  class="text-lg font-bold md:text-xl lg:font-extrabold ">ppppp</h1>
-//     <p class="text-xs md:text-sm w-[455px] font-bold">lllll</p>
-//     `
-//      destinationContainer.innerHTML = ''; // Optional: clear previous content
-//   destinationContainer.appendChild(div);
 
-    
+// }
 
-}
+
+
+
+
 
 const loginBtn = document.getElementById('login-btn')
 const loginFunction = () => {
@@ -62,17 +75,18 @@ const loginFunction = () => {
 })
 }
 
-
 const activeUserData = localStorage.getItem('activeSession')
 console.log(activeUserData)
 
 const userInfo = JSON.parse(activeUserData)
+
 if(userInfo){
+
     const navbarEnd = document.getElementById('navbarEnd')
     // const dropdown = document.getElementById('dropdown')
    navbarEnd.innerHTML = `
     <div id="dropdown" class="dropdown">
-  <div tabindex="0" role="button" class="btn m-1 rounded-full btn-warning font-bold text-white">${userInfo.firstName.slice(0,1).toUpperCase()}</div>
+  <div tabindex="0" role="button" class="btn m-1 rounded-full btn-warning font-bold text-white">${userInfo.name.slice(0,1).toUpperCase()}</div>
   <ul tabindex="0" class="dropdown-content menu bg-warning rounded-box z-1 shadow-sm space-y-2">
     <li id="dashboard" class="font-bold text-xs"><a>Dashboard</a></li>
     <li id="logout" class="font-bold btn btn-xs"><a>Logout</a></li>
@@ -90,7 +104,7 @@ if(userInfo){
       });
     }
     
-
+ 
 
  if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
@@ -122,8 +136,4 @@ else{
    loginFunction()
    console.log(loginFunction())
 }
-
-
-
-
 

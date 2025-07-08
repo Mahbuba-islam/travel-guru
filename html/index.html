@@ -10,6 +10,8 @@
 </head>
 <body>
     <!-- header -->
+
+    
      <div class="relative  bg-[url('/images/Rectangle-1.png')]
  bg-cover bg-center w-full bg-opacity-25  ">
        <!-- Overlay -->
@@ -82,11 +84,12 @@
   <!-- hero section -->
    <section class="container mx-auto flex relative z-10 my-12 justify-between">
     <!-- hero-content -->
+     
     <div id="hero-content" class="text-white  space-y-2 ">
-    <!-- <h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">Cox's bazar</h1>
+    <h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">Cox's bazar</h1>
     <p class="text-xs md:text-sm w-[455px] font-bold">Cox's Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. 
         It is famous mostly for its long natural sandy beach, and it ...</p>
-    <button id="bookingId" class="btn btn-warning font-bold text-black">Booking</button> -->
+    <button id="bookingId" class="btn btn-warning font-bold text-black">Booking</button>
     </div>
     <!-- caropsoul -->
     <div  class=" w-1/2">
@@ -135,9 +138,141 @@
 
      </div>
     
+    <main class="flex items-center justify-center  w-full">
+  <section class=" rounded-xl  space-y-8">
+    <!-- Header -->
+    <header class="text-center">
+      <h1 class="text-4xl font-bold text-primary">Discover More Beautiful Place</h1>
+      <p class="mt-2 text-base-content">Explore unique landscapes, heritage, and serene getaways across the country.</p>
+    </header>
 
-    <script src="/js/index.js"></script>
+    <!-- Destination Grid -->
+    <section class=" container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+  <!-- Saint Martin’s Island -->
+  <div class="card bg-base-100 shadow-lg">
+    <figure><img src="/images/bangladesh-places-13-1024x683.jpg" alt="Saint Martin’s Island" class="rounded-t-lg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-warning font-extrabold">Saint Martin’s Island</h2>
+      <p>Coral island with turquoise waters and coconut groves.</p>
+      <div class="card-actions justify-between mt-4">
+        <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('saint-martins')">Explore</button>
+        <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('saint-martins')">Book Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kuakata -->
+  <div class="card bg-base-100 shadow-lg">
+    <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Kuakata" class="rounded-t-lg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-warning font-extrabold">Kuakata</h2>
+      <p>The “Daughter of the Sea,” famous for both sunrise and sunset views.</p>
+      <div class="card-actions justify-between mt-4">
+        <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('kuakata')">Explore</button>
+        <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('kuakata')">Book Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ahsan Manzil -->
+  <div class="card bg-base-100 shadow-lg">
+    <figure><img src="/images/bangladesh-places-07-1024x683.jpg" alt="Ahsan Manzil" class="rounded-t-lg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-warning font-extrabold">Ahsan Manzil</h2>
+      <p>Pink palace museum in Old Dhaka, rich with Mughal architecture.</p>
+      <div class="card-actions justify-between mt-4">
+        <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('ahsan-manzil')">Explore</button>
+        <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('ahsan-manzil')">Book Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lalbagh Fort -->
+  <div class="card bg-base-100 shadow-lg">
+    <figure><img src="/images/bangladesh-places-11-1024x683.jpg" alt="Lalbagh Fort" class="rounded-t-lg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-warning font-extrabold">Lalbagh Fort</h2>
+      <p>Mughal-era fort with lush gardens and a historical museum.</p>
+      <div class="card-actions justify-between mt-4">
+        <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('lalbagh-fort')">Explore</button>
+        <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('lalbagh-fort')">Book Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sonargaon -->
+  <div class="card bg-base-100 shadow-lg">
+    <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Sonargaon" class="rounded-t-lg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-warning font-extrabold">Sonargaon</h2>
+      <p>Ancient capital with Panam City ruins and folk art museum.</p>
+      <div class="card-actions justify-between mt-4">
+        <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('sonargaon')">Explore</button>
+        <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('sonargaon')">Book Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mahasthangarh -->
+  <div class="card bg-base-100 shadow-lg">
+    <figure><img src="/images/bangladesh-places-13-1024x683.jpg" alt="Mahasthangarh" class="rounded-t-lg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-warning font-extrabold">Mahasthangarh</h2>
+      <p>Oldest archaeological site in Bangladesh, rich in ancient ruins.</p>
+      <div class="card-actions justify-between mt-4">
+        <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('mahasthangarh')">Explore</button>
+        <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('mahasthangarh')">Book Now</button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+    <!-- Footer -->
+   <footer class="bg-neutral text-neutral-content mt-16 py-10">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
     
+    <!-- Branding -->
+    <div>
+      <img src="/logo.png" alt="Travel Guru Logo" class="w-24 mb-2" />
+      <p class="text-sm">
+        Travel Guru © 2025 <br />
+        Your gateway to unforgettable journeys.
+      </p>
+    </div>
+    
+    <!-- Quick Links -->
+    <div>
+      <h2 class="text-lg font-bold mb-2">Quick Links</h2>
+      <ul class="space-y-1 text-sm">
+        <li><a class="hover:text-warning" href="#">Destinations</a></li>
+        <li><a class="hover:text-warning" href="#">Blog</a></li>
+        <li><a class="hover:text-warning" href="#">Contact Us</a></li>
+        <li><a class="hover:text-warning" href="#">Login</a></li>
+      </ul>
+    </div>
+    
+    <!-- Social & Contact -->
+    <div>
+      <h2 class="text-lg font-bold mb-2">Connect With Us</h2>
+      <div class="flex space-x-4 mb-3">
+        <a href="#" class="hover:text-warning">🌐</a>
+        <a href="#" class="hover:text-warning">📘</a>
+        <a href="#" class="hover:text-warning">📸</a>
+      </div>
+      <p class="text-sm">
+        support@travelguru.com <br />
+        +1 (555) 123-4567
+      </p>
+    </div>
+
+  </div>
+</footer>
+  </section>
+</main>
+
+<script src="/js/index.js"></script>
 </body>
  
 </html>
