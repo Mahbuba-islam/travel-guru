@@ -1,10 +1,23 @@
+const defaultItem = () => {
+ const carouselItem = document.querySelector('.carousel-item')
+const destinationDetails = carouselItem.childNodes[3].innerText
+        const destination = carouselItem.childNodes[1].innerText
+    const div = document.createElement('div')
+       div.innerHTML = `<h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
+    <p class="text-xs md:text-sm w-[455px] font-bold">${destinationDetails}</p>
+    <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
+    heroContent.appendChild(div)
+    carouselItem .classList.add('border', 'border-warning', 'rounded-md', 'border-4')
+
+}
+defaultItem()
+
 
 
 const carouselItems = document.querySelectorAll('.carousel-item')
-
-const heroContent = document.getElementById('hero-content')
+   const heroContent = document.getElementById('hero-content')
 carouselItems.forEach(i => {
-    i.addEventListener('click', () => {
+  i.addEventListener('click', () => {
         heroContent.innerHTML = ''
         console.log(i)
         removeBorder()
@@ -34,8 +47,11 @@ carouselItems.forEach(i => {
 
 
     })
-   
+
+    
 })
+
+
  
 
 
