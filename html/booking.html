@@ -77,16 +77,20 @@
     <div id="destination-container" class="text-white  space-y-2 ">
    
     </div>
-    <!-- if no user, then show this toast -->
-    <div id="loginToast" class="toast toast-top toast-end hidden">
+    
+    <!-- booking form -->
+    <div class="w-1/2 ">
+     <fieldset class="fieldset bg-white rounded-box w-xs p-7 mb-5 space-y-3">
+
+        <!-- if no user, then show this toast -->
+    <div id="loginToast" class="toast top-30 right-94 hidden">
   <div class="alert alert-warning">
     <span>To book, you need to log in first.</span>
     <button id="redirectLogin" class="btn btn-sm btn-outline ml-4" >Log in</button>
   </div>
 </div>
-    <!-- booking form -->
-    <div class="w-1/2 ">
-   <fieldset class="fieldset bg-white rounded-box w-xs p-7 mb-5 space-y-3">
+
+
  <label class="label">Origin</label>
   <input id="origin-input" type="text" class="input border-0 bg-gray-200" required />
 
@@ -212,6 +216,7 @@
 
       <!-- <script src="/js/index.js"></script> -->
       <script src="/js/booking.js"></script>
+      <script src="/js/utility.js"></script>
      <script type="module" src="https://unpkg.com/cally"></script> 
      <!-- <script src="/js/login.js"></script> -->
      

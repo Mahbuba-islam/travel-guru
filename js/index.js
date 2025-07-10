@@ -137,3 +137,108 @@ else{
    console.log(loginFunction())
 }
 
+
+// search
+document.getElementById('search-destination').addEventListener('keydown', (e) => {
+  const searchValue = e.target.value.trim().toUpperCase()
+  const cards = document.querySelectorAll('.card')
+  cards.forEach(card => {
+    // console.log(card)
+    const cardTitle = card.querySelector('.card-title')
+    console.log(cardTitle)
+    const cardTitleText = cardTitle.innerText.trim().toUpperCase()
+    console.log(cardTitleText)
+    if(cardTitleText.includes(searchValue)){
+      card.style.display = 'grid'
+    }
+    else{
+      card.style.display= 'none'
+    }
+  })
+})
+
+// sort
+// const sortCards = (type, direction) => {                              
+//  const cards = Array.from(document.querySelectorAll('.card'))
+//  cards.sort((a,b) => {
+//   const valueA = type === 'price' ? getPrice(a) : getName(a)
+//   const valueb = type === 'price' ? getPrice(b) : getName(b)
+//   if(type === 'name'){
+//     return direction === 'asc'? valueA.localeCompare(valueb) : valueb.localeCompare(valueA)
+//   }
+//   else{
+//     return direction === 'asc' ? valueA - valueb : valueb - valueA
+//   }
+//  })
+//  cards.forEach(card => {
+//   card.parentNode.appendChild(card)
+//  })
+// }
+
+// const getName = (card) => {
+//  const name = card.querySelector('.title').innerText.trim().toLowerCase()
+//  return name
+// }
+
+// const getPrice = (card) => {
+//   const priceInput = card.querySelector('.text-yellow-600').innerText
+//   const price = priceInput.replace(/[^\d]/g, '')
+//   return parseInt(price)
+// }
+
+
+
+
+
+
+// sort
+const clickSortedBtn = () => {
+  const ids = ['price-asending', 'price-decending', 'name-asending', 'name-decending']
+  ids.forEach(id => {
+    const btn = document.getElementById(id)
+    btn.addEventListener('click', () => {
+      const cards = Array.from(document.querySelectorAll('.card'))
+      cards.sort((a,b) => {
+        let priceValueA = getPrize(a)
+        let priceValueB = getPrize(b)
+        let nameValueA= getName(a)
+        let nameValueB = getName(b)
+        if(id === 'price-asending') {
+        return priceValueA-priceValueB
+        }
+        if(id === 'price-decending'){
+        return priceValueB-priceValueA
+        } 
+        if(id === 'name-asending') {
+        return nameValueA.localeCompare(nameValueB)
+        }
+        if(id === 'name-decending'){
+       return nameValueB.localeCompare(nameValueA)
+        } 
+
+       })
+     
+     cards.forEach(card => {
+  card.parentNode.appendChild(card)
+  })
+    
+    })
+    
+  })
+ 
+ 
+}
+ 
+const getPrize = (card) => {
+ const priceInput = card.querySelector('.price')
+ const price = priceInput.innerText.replace(/[^\d]/g, '')
+ return parseInt(price)
+}
+
+const getName = (card) => {
+ const name = card.querySelector('.title').innerText.trim().toLowerCase()
+ return name
+}
+
+clickSortedBtn()
+

@@ -30,6 +30,7 @@ const showModal = () => {
         </div>
       </div>`;
     dialog.showModal();
+    
   }
   
   else if (originInput && destinationInput && user){
@@ -66,17 +67,21 @@ const showModal = () => {
           </form>
         </div>
       </div>`;
+
+      
      
     dialog.showModal();
-    document.getElementById('dashboard-btn').addEventListener('click', () => {
+    clearInput('origin-input')
+    clearInput('destination-input')
+    clearInput('displayDate')
+    clearInput('dateDisplay')
+
+   document.getElementById('dashboard-btn').addEventListener('click', () => {
      window.location.href = '/html/dashboard.html'
     }) 
   
-
-  } 
-
-  
-  else {
+} 
+ else {
   const loginToast = document.getElementById('loginToast')
   loginToast.classList.remove('hidden')
  
@@ -99,11 +104,8 @@ function goToLogin() {
 }
 localStorage.setItem('bookingInfo', JSON.stringify(bookingData))
 console.log(bookingData)
+}
 
-  }
-
-  
- 
 // set login button
 const navbarEnd = document.getElementById('navbar-login')
 const logInBtn = document.getElementById('login-btn')
