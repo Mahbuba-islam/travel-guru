@@ -31,9 +31,9 @@
       <ul
         tabindex="0"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>News</a></li>
-      <li><a>Destination</a></li>
-      <li><a>Blog</a></li>
+        <li><a>Destinations</a></li>
+      <li><a>Beach</a></li>
+      <li><a>Mountain</a></li>
       <li><a>Contact</a></li>
       <li><a>Login</a></li>
       </ul>
@@ -60,17 +60,18 @@
      <!-- menu -->
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a>News</a></li>
-      <li><a>Destination</a></li>
-      <li><a>Blog</a></li>
-      <li><a>Contact</a></li>
+      <li onclick="showCategoryData('allDestinations')"><a>All Destinations</a></li>
+      <li onclick="showCategoryData('beach')"> <a>Beach</a></li>
+      <li onclick="showCategoryData('mountain')"><a>Mountain</a></li>
+      <li onclick="showCategoryData('museum')"><a>Mesuem</a></li>
+      <li onclick="showCategoryData('islands')"><a>Islands</a></li>
       
       <div class="dropdown dropdown-end mb-4 flex justify-end">
   <label tabindex="0" class="btn btn-warning btn-sm font-bold text-black">Sort Options</label>
   <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-yellow-600 rounded-box w-48">
     <li><button id="price-asending">price: low to high</button></li>
-    <li><button id="price-decending">price: low to high</button></li>
-    <li><button id="name-asending">name: Ato Z</button></li>
+    <li><button id="price-decending">price: high to low</button></li>
+    <li><button id="name-asending">name: A to Z</button></li>
     <li><button id="name-decending">name: Z to A</button></li>
   </ul>
 </divl>
@@ -150,103 +151,95 @@
     
  
 <main class="flex items-center justify-center w-full px-4 py-10">
-  <section class="rounded-xl space-y-8 w-full max-w-7xl">
+  <section id="destination-cards" class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
     
-    <!-- Header -->
-    <header class="text-center">
-      <h1 class="text-4xl font-bold text-primary">Discover More Beautiful Places</h1>
-      <p class="mt-2 text-base-content">Explore unique landscapes, heritage, and serene getaways across the country.</p>
-    </header>
-
-    <!-- Destination Grid -->
-    <section  class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      
-      <!-- Saint Martin’s Island -->
-      <div class="card bg-base-100 shadow-lg">
-        <figure><img src="/images/bangladesh-places-13-1024x683.jpg" alt="Saint Martin’s Island" class="rounded-t-lg" /></figure>
-        <div class="card-body">
-          <h2 class="title card-title text-warning font-extrabold">Saint Martin’s Island</h2>
-          <p>Coral island with turquoise waters and coconut groves.</p>
-          <p class="price text-yellow-600 font-bold text-sm">Starting from ৳4,500</p>
-          <div class="card-actions justify-between mt-4">
-            <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('saint-martins')">Explore</button>
-            <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('saint-martins')">Book Now</button>
-          </div>
+    <!-- Saint Martin’s Island -->
+    <div class="card bg-base-100 shadow-lg" data-category="beach allDestinations">
+      <figure><img src="/images/bangladesh-places-13-1024x683.jpg" alt="Saint Martin’s Island" class="rounded-t-lg" /></figure>
+      <div class="card-body">
+        <h2 class="card-title text-warning font-extrabold">Saint Martin’s Island</h2>
+        <p>Coral island with turquoise waters and coconut groves.</p>
+        <p class="price text-yellow-600 font-bold text-sm">Starting from ৳4,500</p>
+        <div class="card-actions justify-between mt-4">
+          <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('saint-martins')">Explore</button>
+          <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('saint-martins')">Book Now</button>
         </div>
       </div>
+    </div>
 
-      <!-- Kuakata -->
-      <div class="card bg-base-100 shadow-lg">
-        <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Kuakata" class="rounded-t-lg" /></figure>
-        <div class="card-body">
-          <h2 class="title card-title text-warning font-extrabold">Kuakata</h2>
-          <p>The “Daughter of the Sea,” famous for both sunrise and sunset views.</p>
-          <p class="price text-yellow-600 font-bold text-sm">Starting from ৳3,200</p>
-          <div class="card-actions justify-between mt-4">
-            <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('kuakata')">Explore</button>
-            <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('kuakata')">Book Now</button>
-          </div>
+    <!-- Kuakata -->
+    <div class="card bg-base-100 shadow-lg" data-category="beach allDestinations">
+      <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Kuakata" class="rounded-t-lg" /></figure>
+      <div class="card-body">
+        <h2 class="card-title text-warning font-extrabold">Kuakata</h2>
+        <p>The “Daughter of the Sea,” famous for both sunrise and sunset views.</p>
+        <p class="price text-yellow-600 font-bold text-sm">Starting from ৳3,200</p>
+        <div class="card-actions justify-between mt-4">
+          <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('kuakata')">Explore</button>
+          <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('kuakata')">Book Now</button>
         </div>
       </div>
+    </div>
 
-      <!-- Ahsan Manzil -->
-      <div class="card bg-base-100 shadow-lg">
-        <figure><img src="/images/bangladesh-places-07-1024x683.jpg" alt="Ahsan Manzil" class="rounded-t-lg" /></figure>
-        <div class="card-body">
-          <h2 class="title card-title text-warning font-extrabold">Ahsan Manzil</h2>
-          <p>Pink palace museum in Old Dhaka, rich with Mughal architecture.</p>
-          <p class="price text-yellow-600 font-bold text-sm">Starting from ৳1,500</p>
-          <div class="card-actions justify-between mt-4">
-            <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('ahsan-manzil')">Explore</button>
-            <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('ahsan-manzil')">Book Now</button>
-          </div>
+    <!-- Ahsan Manzil -->
+    <div class="card bg-base-100 shadow-lg" data-category="heritage allDestinations">
+      <figure><img src="/images/bangladesh-places-07-1024x683.jpg" alt="Ahsan Manzil" class="rounded-t-lg" /></figure>
+      <div class="card-body">
+        <h2 class="card-title text-warning font-extrabold">Ahsan Manzil</h2>
+        <p>Pink palace museum in Old Dhaka, rich with Mughal architecture.</p>
+        <p class="price text-yellow-600 font-bold text-sm">Starting from ৳1,500</p>
+        <div class="card-actions justify-between mt-4">
+          <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('ahsan-manzil')">Explore</button>
+          <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('ahsan-manzil')">Book Now</button>
         </div>
       </div>
+    </div>
 
-      <!-- Lalbagh Fort -->
-      <div class="card bg-base-100 shadow-lg">
-        <figure><img src="/images/bangladesh-places-11-1024x683.jpg" alt="Lalbagh Fort" class="rounded-t-lg" /></figure>
-        <div class="card-body">
-          <h2 class="title card-title text-warning font-extrabold">Lalbagh Fort</h2>
-          <p>Mughal-era fort with lush gardens and a historical museum.</p>
-          <p class="price text-yellow-600 font-bold text-sm">Starting from ৳1,800</p>
-          <div class="card-actions justify-between mt-4">
-            <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('lalbagh-fort')">Explore</button>
-            <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('lalbagh-fort')">Book Now</button>
-          </div>
+    <!-- Lalbagh Fort -->
+    <div class="card bg-base-100 shadow-lg" data-category="heritage allDestinations">
+      <figure><img src="/images/bangladesh-places-11-1024x683.jpg" alt="Lalbagh Fort" class="rounded-t-lg" /></figure>
+      <div class="card-body">
+        <h2 class="card-title text-warning font-extrabold">Lalbagh Fort</h2>
+        <p>Mughal-era fort with lush gardens and a historical museum.</p>
+        <p class="price text-yellow-600 font-bold text-sm">Starting from ৳1,800</p>
+        <div class="card-actions justify-between mt-4">
+          <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('lalbagh-fort')">Explore</button>
+          <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('lalbagh-fort')">Book Now</button>
         </div>
       </div>
+    </div>
 
-      <!-- Sonargaon -->
-      <div class="card bg-base-100 shadow-lg">
-        <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Sonargaon" class="rounded-t-lg" /></figure>
-        <div class="card-body">
-          <h2 class="title card-title text-warning font-extrabold">Sonargaon</h2>
-          <p>Ancient capital with Panam City ruins and folk art museum.</p>
-          <p class="price text-yellow-600 font-bold text-sm">Starting from ৳2,500</p>
-          <div class="card-actions justify-between mt-4">
-            <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('sonargaon')">Explore</button>
-            <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('sonargaon')">Book Now</button>
-          </div>
+    <!-- Sonargaon -->
+    <div class="card bg-base-100 shadow-lg" data-category="heritage museum allDestinations">
+      <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Sonargaon" class="rounded-t-lg" /></figure>
+      <div class="card-body">
+        <h2 class="card-title text-warning font-extrabold">Sonargaon</h2>
+        <p>Ancient capital with Panam City ruins and folk art museum.</p>
+        <p class="price text-yellow-600 font-bold text-sm">Starting from ৳2,500</p>
+        <div class="card-actions justify-between mt-4">
+          <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('sonargaon')">Explore</button>
+          <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('sonargaon')">Book Now</button>
         </div>
       </div>
+    </div>
 
-      <!-- Mahasthangarh -->
-      <div class="card bg-base-100 shadow-lg">
-        <figure><img src="/images/bangladesh-places-13-1024x683.jpg" alt="Mahasthangarh" class="rounded-t-lg" /></figure>
-        <div class="card-body">
-          <h2 class="title card-title text-warning font-extrabold">Mahasthangarh</h2>
-          <p>Oldest archaeological site in Bangladesh, rich in ancient ruins.</p>
-          <p class="price text-yellow-600 font-bold text-sm">Starting from ৳3,800</p>
-          <div class="card-actions justify-between mt-4">
-            <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('mahasthangarh')">Explore</button>
-            <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('mahasthangarh')">Book Now</button>
-          </div>
+    <!-- Mahasthangarh -->
+    <div class="card bg-base-100 shadow-lg" data-category="mountain archaeology allDestinations">
+      <figure><img src="/images/bangladesh-places-13-1024x683.jpg" alt="Mahasthangarh" class="rounded-t-lg" /></figure>
+      <div class="card-body">
+        <h2 class="card-title text-warning font-extrabold">Mahasthangarh</h2>
+        <p>Oldest archaeological site in Bangladesh, rich in ancient ruins.</p>
+        <p class="price text-yellow-600 font-bold text-sm">Starting from ৳3,800</p>
+        <div class="card-actions justify-between mt-4">
+          <button class="btn btn-outline btn-sm font-semibold" onclick="openDestinationModal('mahasthangarh')">Explore</button>
+          <button class="btn btn-warning btn-sm font-bold text-black" onclick="bookDestination('mahasthangarh')">Book Now</button>
         </div>
       </div>
+    </div>
 
-    </section>
   </section>
+</section>
+
 </main>
 
 

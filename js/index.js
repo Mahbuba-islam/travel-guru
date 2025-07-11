@@ -1,23 +1,9 @@
-const defaultItem = () => {
- const carouselItem = document.querySelector('.carousel-item')
-const destinationDetails = carouselItem.childNodes[3].innerText
-        const destination = carouselItem.childNodes[1].innerText
-    const div = document.createElement('div')
-       div.innerHTML = `<h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
-    <p class="text-xs md:text-sm w-[455px] font-bold">${destinationDetails}</p>
-    <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
-    heroContent.appendChild(div)
-    carouselItem .classList.add('border', 'border-warning', 'rounded-md', 'border-4')
-
-}
-defaultItem()
-
-
-
 const carouselItems = document.querySelectorAll('.carousel-item')
    const heroContent = document.getElementById('hero-content')
+
 carouselItems.forEach(i => {
-  i.addEventListener('click', () => {
+  
+    i.addEventListener('click', () => {
         heroContent.innerHTML = ''
         console.log(i)
         removeBorder()
@@ -51,7 +37,19 @@ carouselItems.forEach(i => {
     
 })
 
+const defaultItem = () => {
+ const carouselItem = document.querySelector('.carousel-item')
+const destinationDetails = carouselItem.childNodes[3].innerText
+        const destination = carouselItem.childNodes[1].innerText
+    const div = document.createElement('div')
+       div.innerHTML = `<h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
+    <p class="text-xs md:text-sm w-[455px] font-bold">${destinationDetails}</p>
+    <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
+    heroContent.appendChild(div)
+    carouselItem .classList.add('border', 'border-warning', 'rounded-md', 'border-4')
 
+}
+defaultItem()
  
 
 
@@ -156,22 +154,51 @@ else{
 
 // search
 document.getElementById('search-destination').addEventListener('keydown', (e) => {
-  const searchValue = e.target.value.trim().toUpperCase()
-  const cards = document.querySelectorAll('.card')
+  const searchValue = e.target.value.trim().toUpperCase();
+  const cards = document.querySelectorAll('.card');
+  let matchCount = 0;
+
   cards.forEach(card => {
-    // console.log(card)
-    const cardTitle = card.querySelector('.card-title')
-    console.log(cardTitle)
-    const cardTitleText = cardTitle.innerText.trim().toUpperCase()
-    console.log(cardTitleText)
-    if(cardTitleText.includes(searchValue)){
-      card.style.display = 'grid'
+    const cardTitle = card.querySelector('.card-title');
+    const cardTitleText = cardTitle.innerText.trim().toUpperCase();
+
+    if (cardTitleText.includes(searchValue)) {
+      card.style.display = 'grid';
+      matchCount++;
+    } else {
+      card.style.display = 'none';
+      
     }
-    else{
-      card.style.display= 'none'
-    }
-  })
-})
+  });
+  const message = `
+        <div class="text-white font-bold p-4 bg-warning rounded-md">
+          Sorry, no destinations matched your search. Try exploring other places!
+        </div>
+      `;
+  handleFallBackMessage(matchCount,message)
+
+  // const destinationCards = document.getElementById('destination-cards');
+  // const existingFallback = document.getElementById('fallback-message');
+
+  // if (matchCount === 0) {
+  //   if (!existingFallback) {
+  //     const fallbackMessage = document.createElement('div');
+  //     fallbackMessage.id = 'fallback-message'; // ✅ Give it an ID to track
+  //     fallbackMessage.innerHTML = `
+  //       <div class="text-white font-bold p-4 bg-warning rounded-md">
+  //         Sorry, no destinations matched your search. Try exploring other places!
+  //       </div>
+  //     `;
+  //     destinationCards.appendChild(fallbackMessage);
+  //     destinationCards.classList.remove('grid');
+  //   }
+  // } else {
+  //   if (existingFallback) {
+  //     destinationCards.removeChild(existingFallback);
+  //   }
+  //   destinationCards.classList.add('grid');
+  // }
+});
 
 // sort
 // const sortCards = (type, direction) => {                              
@@ -258,3 +285,111 @@ const getName = (card) => {
 
 clickSortedBtn()
 
+
+
+
+const showCategoryData = (name) => {
+  const cards = document.querySelectorAll('.card');
+  let matchCount = 0;
+
+  cards.forEach(card => {
+    const category = card.dataset.category.toLowerCase(); // e.g. "beach", "heritage museum"
+
+    // Check if the selected name matches any part of the category string
+    const matches = category.includes(name?.toLowerCase());
+
+    if (matches) {
+      card.style.display = 'grid';
+      matchCount++;
+    } else {
+      card.style.display = 'none'; 
+    }
+  });
+  const message = `
+        <div class="text-white font-bold p-4 bg-warning rounded-md">
+          No destinations found for "${name}". Try another category!
+        </div>
+      `;
+
+  // Optional: fallback message if nothing matches
+  handleFallBackMessage(matchCount, message)
+  // const destinationCards = document.getElementById('destination-cards');
+  // const existingFallback = document.getElementById('fallback-message');
+
+  // if (matchCount === 0) {
+  //   if (!existingFallback) {
+  //     const fallbackMessage = document.createElement('div');
+  //     fallbackMessage.id = 'fallback-message';
+  //     fallbackMessage.innerHTML = `
+  //       <div class="text-white font-bold p-4 bg-warning rounded-md">
+  //         No destinations found for "${name}". Try another category!
+  //       </div>
+  //     `;
+  //     destinationCards.appendChild(fallbackMessage);
+  //     destinationCards.classList.remove('grid');
+  //   }
+  // } else {
+  //   if (existingFallback) {
+  //     destinationCards.removeChild(existingFallback);
+  //   }
+  //   destinationCards.classList.add('grid');
+  // }
+};
+
+
+// fallback message
+const handleFallBackMessage = (matchCount,message) => {
+  const destinationCards = document.getElementById('destination-cards')
+  const existingfallbackMessage = document.getElementById('fall-back-message')
+
+  if(matchCount === 0 && !existingfallbackMessage){
+   const fallbackMessage = document.createElement('div')
+   fallbackMessage.id = 'fall-back-message'
+   fallbackMessage.innerHTML  = message
+   destinationCards.appendChild(fallbackMessage)
+   destinationCards.classList.remove('grid')
+  }
+  else{
+    if(existingfallbackMessage){
+  destinationCards.removeChild(existingfallbackMessage)
+  
+    }
+     destinationCards.classList.add('grid')
+    
+  }
+ 
+}
+
+showCategoryData('allDestinations')
+
+
+// show data based on category
+
+// const showCategoryData = (name) => {
+//   const cards = document.querySelectorAll('.card');
+//   cards.forEach(card => {
+//     const category = card.dataset.category;
+//   console.log(card, category, )
+
+//    if(name==='beach'){
+//    constAllBeach = category.filter(b => )
+//   }
+//   if(name==='mountain'){
+
+//   }
+//   if(name==='Mesuem'){
+
+//   }
+//   if(name==='allDestinations'){
+
+//   }
+//   })
+
+ 
+// }
+
+// const getCategory = (name) => {
+//  const card = document.querySelector('.card');
+// const category = card.dataset.category; // returns "beach"
+
+// }
