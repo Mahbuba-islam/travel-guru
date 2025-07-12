@@ -60,11 +60,11 @@
      <!-- menu -->
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li onclick="showCategoryData('allDestinations')"><a>All Destinations</a></li>
-      <li onclick="showCategoryData('beach')"> <a>Beach</a></li>
-      <li onclick="showCategoryData('mountain')"><a>Mountain</a></li>
-      <li onclick="showCategoryData('museum')"><a>Mesuem</a></li>
-      <li onclick="showCategoryData('islands')"><a>Islands</a></li>
+      <li><a onclick="showCategoryData('allDestinations')" class="category-btn">All Destinations</a></li>
+      <li> <a onclick="showCategoryData('beach')"  class="category-btn">Beach</a></li>
+      <li><a onclick="showCategoryData('mountain')"  class="category-btn">Mountain</a></li>
+      <li><a onclick="showCategoryData('museum')"  class="category-btn">Mesuem</a></li>
+      <li><a onclick="showCategoryData('islands')"  class="category-btn">Islands</a></li>
       
       <div class="dropdown dropdown-end mb-4 flex justify-end">
   <label tabindex="0" class="btn btn-warning btn-sm font-bold text-black">Sort Options</label>
@@ -149,9 +149,20 @@
 
      </div>
     
- 
-<main class="flex items-center justify-center w-full px-4 py-10">
-  <section id="destination-cards" class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+  <!-- main -->
+<main class="container mx-auto">
+  <!-- category section -->
+   <ul class="flex justify-around items-center shadow-xs p-4 rounded-lg">
+   <li><a onclick="showCategoryData('allDestinations')" class="category-btn btn border-none">All Destinations</a></li>
+      <li> <a onclick="showCategoryData('beach')"  class="category-btn btn border-none">Beach</a></li>
+      <li><a onclick="showCategoryData('mountain')"  class="category-btn btn border-none">Mountain</a></li>
+      <li><a onclick="showCategoryData('museum')"  class="category-btn btn border-none">Mesuem</a></li>
+      <li><a onclick="showCategoryData('islands')"  class="category-btn btn border-none">Islands</a></li>
+      
+   </ul>
+   <!-- cards section -->
+    <section class="flex items-center justify-center w-full px-4 py-10">
+     <div id="destination-cards" class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
     
     <!-- Saint Martin’s Island -->
     <div class="card bg-base-100 shadow-lg" data-category="beach allDestinations">
@@ -238,7 +249,9 @@
     </div>
 
   </section>
-</section>
+</div>
+    </section>
+ 
 
 </main>
 

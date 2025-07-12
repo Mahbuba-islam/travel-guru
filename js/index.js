@@ -6,7 +6,7 @@ carouselItems.forEach(i => {
     i.addEventListener('click', () => {
         heroContent.innerHTML = ''
         console.log(i)
-        removeBorder()
+       addAndRemoveActiveColor('.carousel-item')
         i.classList.add('border', 'border-warning', 'rounded-md', 'border-4')
        const destinationDetails = i.childNodes[3].innerText
         const destination = i.childNodes[1].innerText
@@ -31,11 +31,11 @@ carouselItems.forEach(i => {
      })
      })
 
-
     })
-
+console.log(heroContent)
     
 })
+
 
 const defaultItem = () => {
  const carouselItem = document.querySelector('.carousel-item')
@@ -54,25 +54,10 @@ defaultItem()
 
 
 // removeActiveBorder
-const removeBorder = () => {
-    carouselItems.forEach(i => {
-        i.classList.remove('border', 'border-warning', 'rounded-md', 'border-4')
-    })
-}
-
-
-
-// const navigateBooking = () => {
-//   const userTravelDetails = {
-//     origin:destination,
-//     originDetails:destinationDetails,
-//     user:userInfo
-//   }
-//   console.log(userTravelDetails)
-//   localStorage.setItem('userTravelInfo', JSON.stringify(userTravelDetails))
-//     // window.location.href = '/html/booking.html'
-   
-
+// const removeBorder = () => {
+//     carouselItems.forEach(i => {
+//         i.classList.remove('border', 'border-warning', 'rounded-md', 'border-4')
+//     })
 // }
 
 
@@ -80,6 +65,7 @@ const removeBorder = () => {
 
 
 
+// login
 const loginBtn = document.getElementById('login-btn')
 const loginFunction = () => {
   loginBtn.innerText = 'login'
@@ -97,8 +83,7 @@ const userInfo = JSON.parse(activeUserData)
 if(userInfo){
 
     const navbarEnd = document.getElementById('navbarEnd')
-    // const dropdown = document.getElementById('dropdown')
-   navbarEnd.innerHTML = `
+     navbarEnd.innerHTML = `
     <div id="dropdown" class="dropdown">
   <div tabindex="0" role="button" class="btn m-1 rounded-full btn-warning font-bold text-white">${userInfo.name.slice(0,1).toUpperCase()}</div>
   <ul tabindex="0" class="dropdown-content menu bg-warning rounded-box z-1 shadow-sm space-y-2">
@@ -118,7 +103,7 @@ if(userInfo){
       });
     }
     
- 
+//  logout
 
  if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
@@ -126,8 +111,7 @@ if(userInfo){
     // Reset login button styles & text
     loginBtn.className = 'btn btn-warning font-bold text-black';
     loginBtn.innerText = 'login';
-    // loginBtn.tabIndex = 0;
-    // loginBtn.role = 'button';
+    
 
     // Clear any dropdown content
     loginBtn.innerHTML = 'login'; // if dropdown was inserted before
@@ -177,30 +161,9 @@ document.getElementById('search-destination').addEventListener('keydown', (e) =>
       `;
   handleFallBackMessage(matchCount,message)
 
-  // const destinationCards = document.getElementById('destination-cards');
-  // const existingFallback = document.getElementById('fallback-message');
+  });
 
-  // if (matchCount === 0) {
-  //   if (!existingFallback) {
-  //     const fallbackMessage = document.createElement('div');
-  //     fallbackMessage.id = 'fallback-message'; // ✅ Give it an ID to track
-  //     fallbackMessage.innerHTML = `
-  //       <div class="text-white font-bold p-4 bg-warning rounded-md">
-  //         Sorry, no destinations matched your search. Try exploring other places!
-  //       </div>
-  //     `;
-  //     destinationCards.appendChild(fallbackMessage);
-  //     destinationCards.classList.remove('grid');
-  //   }
-  // } else {
-  //   if (existingFallback) {
-  //     destinationCards.removeChild(existingFallback);
-  //   }
-  //   destinationCards.classList.add('grid');
-  // }
-});
-
-// sort
+// sort one way
 // const sortCards = (type, direction) => {                              
 //  const cards = Array.from(document.querySelectorAll('.card'))
 //  cards.sort((a,b) => {
@@ -234,7 +197,7 @@ document.getElementById('search-destination').addEventListener('keydown', (e) =>
 
 
 
-// sort
+// sort another way
 const clickSortedBtn = () => {
   const ids = ['price-asending', 'price-decending', 'name-asending', 'name-decending']
   ids.forEach(id => {
@@ -285,6 +248,26 @@ const getName = (card) => {
 
 clickSortedBtn()
 
+const addAndRemoveActiveColor = (classes) => {
+   const allCategoryBtn = document.querySelectorAll(classes)
+  
+   allCategoryBtn.forEach(btn => {
+   if(classes === '.carousel-item') {
+    btn.classList.remove('border','border-warning', 'rounded-md', 'border-4')
+    btn.addEventListener('click', () => {
+      btn.classList.add('border','border-warning', 'rounded-md', 'border-4')
+    })
+    
+  }
+    else{
+      btn.classList.remove('bg-yellow-600', 'rounded-md', 'text-white')
+    btn.addEventListener('click', () => {
+      btn.classList.add('bg-yellow-600', 'rounded-md', 'text-white' )
+    })
+    }
+    
+    })
+}
 
 
 
@@ -292,9 +275,13 @@ const showCategoryData = (name) => {
   const cards = document.querySelectorAll('.card');
   let matchCount = 0;
 
+   addAndRemoveActiveColor('.category-btn')
+   
+  
   cards.forEach(card => {
     const category = card.dataset.category.toLowerCase(); // e.g. "beach", "heritage museum"
-
+ 
+    
     // Check if the selected name matches any part of the category string
     const matches = category.includes(name?.toLowerCase());
 
@@ -313,27 +300,7 @@ const showCategoryData = (name) => {
 
   // Optional: fallback message if nothing matches
   handleFallBackMessage(matchCount, message)
-  // const destinationCards = document.getElementById('destination-cards');
-  // const existingFallback = document.getElementById('fallback-message');
 
-  // if (matchCount === 0) {
-  //   if (!existingFallback) {
-  //     const fallbackMessage = document.createElement('div');
-  //     fallbackMessage.id = 'fallback-message';
-  //     fallbackMessage.innerHTML = `
-  //       <div class="text-white font-bold p-4 bg-warning rounded-md">
-  //         No destinations found for "${name}". Try another category!
-  //       </div>
-  //     `;
-  //     destinationCards.appendChild(fallbackMessage);
-  //     destinationCards.classList.remove('grid');
-  //   }
-  // } else {
-  //   if (existingFallback) {
-  //     destinationCards.removeChild(existingFallback);
-  //   }
-  //   destinationCards.classList.add('grid');
-  // }
 };
 
 
@@ -363,33 +330,3 @@ const handleFallBackMessage = (matchCount,message) => {
 showCategoryData('allDestinations')
 
 
-// show data based on category
-
-// const showCategoryData = (name) => {
-//   const cards = document.querySelectorAll('.card');
-//   cards.forEach(card => {
-//     const category = card.dataset.category;
-//   console.log(card, category, )
-
-//    if(name==='beach'){
-//    constAllBeach = category.filter(b => )
-//   }
-//   if(name==='mountain'){
-
-//   }
-//   if(name==='Mesuem'){
-
-//   }
-//   if(name==='allDestinations'){
-
-//   }
-//   })
-
- 
-// }
-
-// const getCategory = (name) => {
-//  const card = document.querySelector('.card');
-// const category = card.dataset.category; // returns "beach"
-
-// }
