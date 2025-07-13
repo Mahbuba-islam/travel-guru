@@ -65,30 +65,23 @@
       <li><a onclick="showCategoryData('mountain')"  class="category-btn">Mountain</a></li>
       <li><a onclick="showCategoryData('museum')"  class="category-btn">Mesuem</a></li>
       <li><a onclick="showCategoryData('islands')"  class="category-btn">Islands</a></li>
+      </ul>
       
-      <div class="dropdown dropdown-end mb-4 flex justify-end">
-  <label tabindex="0" class="btn btn-warning btn-sm font-bold text-black">Sort Options</label>
+</div>
+  <div id="navbarEnd" class="navbar-end mt-4">
+   
+<div class="dropdown dropdown-end mb-4 flex justify-end space-x-8">
+  <label tabindex="0" class="btn btn-warning font-bold text-black">Sort Options</label>
   <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-yellow-600 rounded-box w-48">
     <li><button id="price-asending">price: low to high</button></li>
     <li><button id="price-decending">price: high to low</button></li>
     <li><button id="name-asending">name: A to Z</button></li>
     <li><button id="name-decending">name: Z to A</button></li>
   </ul>
-</divl>
-      
-    </ul>
+   <div id="login-btn"   class="btn btn-warning font-bold text-black ">Login</div> 
+</div>
+   
 
-  
-
-
-  </div>
-  <div id="navbarEnd" class="navbar-end">
-    <!-- <div id="dropdown" class="dropdown"> -->
-  <!-- <div id="login-btn" tabindex="0" role="button" class="btn m-1">login</div>
-
-  
-</div> -->
-    <div id="login-btn"   class="btn btn-warning font-bold text-black ">Login</div> 
   <!-- </div> -->
 </div>
       </nav>
@@ -103,9 +96,11 @@
     
     </div>
     <!-- caropsoul -->
-    <div  class=" w-1/2">
-   <div class="carousel rounded-lg space-x-4 ">
-  <div id="item-1" class="carousel-item w-[200px]  h-[350px] relative">
+
+    <div class="carousel carousel-center rounded-box space-x-4 mb-4" id="carosoul-items">
+ 
+  <!-- item -1 -->
+  <div class="carousel-item w-[200px]  h-[350px] relative" data-category="beach allDestinations">
     <h1 class="title absolute bottom-5 left-5 text-white font-bold text-xl z-10">Coxs bazar</h1>
     <p class="hidden">Coxs Bazar, nestled along the southeastern coast of Bangladesh, is home to the world’s longest natural sea beach, 
       stretching over 120 kilometers along the Bay of Bengal
@@ -115,8 +110,8 @@
       class="rounded-lg object-cover"/>
       <div class="absolute bg-black opacity-30 inset-0"></div>
     </div>
-  
-<div id="item-3" class="carousel-item w-[200px]  h-[350px] relative ">
+      <!-- item-2 -->
+<div class="carousel-item w-[200px]  h-[350px] relative " data-category="mountain allDestinations">
     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Sreemongol</h1>
     <p class="hidden">Sreemangal, often called the “tea capital of Bangladesh,” is a lush,
        tranquil town nestled in the Sylhet division. It's famed for its rolling tea gardens, misty hills, and rich biodiversity. 
@@ -125,7 +120,8 @@
       src="/images/Sreemongol.png"
       class="rounded-lg" />
   </div>
-  <div id="item-5" class="carousel-item w-[200px]  h-[350px] relative">
+
+    <div  class="carousel-item w-[200px]  h-[350px] relative" data-category="mountain allDestinations">
      <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Sundorbon</h1>
      <p class="hidden">The Sundarbans is a spellbinding natural wonder—the largest mangrove forest in the world, straddling the delta region of Bangladesh and eastern India where the Ganges, Brahmaputra, and Meghna rivers meet the Bay of Bengal.
      </p>
@@ -134,32 +130,144 @@
       src="/images/sundorbon.png"
       class="rounded-lg" />
   </div>
+  <!-- item-4 -->
+  <div class="carousel-item w-[200px]  h-[350px] relative" data-category="beach allDestinations">
+     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Patenga Beach</h1>
+     <p class="hidden">Patenga Beach is perfect for a relaxing day trip, cultural immersion, or scenic photography. 
+      - Best visited in late afternoon or evening for sunset views.
+
+     </p>
+    
+    <img
+      src="/images/PATEGGA BEACH.jpg"
+      class="rounded-lg" />
+  </div>
+
+   <!-- item-5 -->
+  <div class="carousel-item w-[200px]  h-[350px] relative" data-category="mountain allDestinations">
+     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Keokradong</h1>
+     <p class="hidden">Keokradong, located in the Bandarban district of southeastern Bangladesh, is a 
+      majestic peak rising approximately 986 meters (3,235 feet) above sea level. Once considered the highest point in the country, it now ranks among the top three, with Saka Haphong officially recognized as the tallest. 
+
+     </p>
+    
+    <img
+      src="/images/mountain.jpg"
+      class="rounded-lg" />
+  </div>
+  <!-- item-6 -->
+  <div class="carousel-item w-[200px]  h-[350px] relative" data-category="beach allDestinations">
+     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">Kuakata Beach</h1>
+     <p class="hidden">Kuakata Beach, often called the “Sagar Kannya” or “Daughter of the Sea”, is a 
+      breathtaking sea beach located in the Patuakhali district on the southernmost tip of Bangladesh. 
+
+     </p>
+    
+    <img
+      src="/images/bangladesh-places-11-1024x683.jpg"
+      class="relative rounded-lg" />
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+  </div>
   
+  <!-- item-7 -->
+  <div class="carousel-item w-[200px]  h-[350px] relative" data-category="museum allDestinations">
+     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">National Museum</h1>
+     <p class="hidden">Bangladesh National Museum originally founded as the Dhaka Museum on 20 March 1913.
+formally became the National Museum of Bangladesh in 1983.
+designed by architect Syed Mainul Hossain, known for the National Martyrs’ Memorial.
+ </p>
+    
+    <img
+      src="/images/MUSEUM.jpg"
+      class="relative rounded-lg" />
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+  </div>
   
-   
+  <!-- item-8 -->
+  <div class="carousel-item w-[200px]  h-[350px] relative" data-category="museum allDestinations">
+     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">Sonargaon Folk Art </h1>
+     <p class="hidden">The Sonargaon Folk Art and Craft Museum, located in Narayanganj near Dhaka, is a cultural treasure
+       founded by legendary artist Zainul Abedin in 1975. 
+</p>
+
+     </p>
+    
+    <img
+      src="/images/museum-4917179_1280.jpg"
+      class="relative rounded-lg" />
+      <!-- overlay -->
+       <div class="absolute bg-black inset-0 opacity-25"></div>
+  </div>
+  
+  <!-- item-9 -->
+  <div  class="carousel-item w-[200px]  h-[350px] relative" data-category="museum allDestinations">
+     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">Liberation War Museum </h1>
+     <p class="hidden">The Liberation War Museum, located in Agargaon, Dhaka, commemorates the historic 
+      struggle of Bangladesh’s independence in 1971. 
+</p>
+
+</p>
+
+     </p>
+    
+    <img
+      src="/images/hands-waving-flags-bangladesh.jpg"
+      class="relative rounded-lg" />
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+
+  </div>
+  
+ 
+  
 </div>
-
-<!-- <div class=" flex space-x-3 mt-4 items-center">
-      <a href="#item-4" class="btn btn-circle">❮</a>
-      <a href="#item-2" class="btn btn-circle">❯</a>
-    </div> -->
-
-    </div>
-   </section>
+ </section>
 
      </div>
     
   <!-- main -->
 <main class="container mx-auto">
-  <!-- category section -->
-   <ul class="flex justify-around items-center shadow-xs p-4 rounded-lg">
-   <li><a onclick="showCategoryData('allDestinations')" class="category-btn btn border-none">All Destinations</a></li>
-      <li> <a onclick="showCategoryData('beach')"  class="category-btn btn border-none">Beach</a></li>
-      <li><a onclick="showCategoryData('mountain')"  class="category-btn btn border-none">Mountain</a></li>
-      <li><a onclick="showCategoryData('museum')"  class="category-btn btn border-none">Mesuem</a></li>
-      <li><a onclick="showCategoryData('islands')"  class="category-btn btn border-none">Islands</a></li>
-      
-   </ul>
+  <!-- category -->
+    <div class="dropdown dropdown-end mb-4 flex justify-end">
+  <label tabindex="0" class="btn btn-warning btn-sm font-bold text-black">Sort Options</label>
+  <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-yellow-600 rounded-box w-48">
+    <li><button id="price-asending">price: low to high</button></li>
+    <li><button id="price-decending">price: high to low</button></li>
+    <li><button id="name-asending">name: A to Z</button></li>
+    <li><button id="name-decending">name: Z to A</button></li>
+  </ul>
+</div>
+  <ul class="flex flex-wrap justify-center gap-4 p-4 rounded-xl ">
+  <li>
+    <a onclick="showCategoryData('allDestinations')" 
+       class="category-btn btn btn-sm md:btn-md btn-outline font-bold hover:scale-105 transition-transform duration-200 active:scale-95">
+       All Destinations
+    </a>
+  </li>
+  <li>
+    <a onclick="showCategoryData('beach', 'classes')" 
+       class="category-btn btn btn-sm md:btn-md btn-outline font-bold hover:scale-105 transition-transform duration-200 active:scale-95">
+       Beach
+    </a>
+  </li>
+  <li>
+    <a onclick="showCategoryData('mountain')" 
+       class="category-btn btn btn-sm md:btn-md btn-outline font-bold hover:scale-105 transition-transform duration-200 active:scale-95">
+       Mountain
+    </a>
+  </li>
+  <li>
+    <a onclick="showCategoryData('museum')" 
+       class="category-btn btn btn-sm md:btn-md btn-outline font-bold hover:scale-105 transition-transform duration-200 active:scale-95">
+       Museum
+    </a>
+  </li>
+  <li>
+    <a onclick="showCategoryData('islands')" 
+       class="category-btn btn btn-sm md:btn-md btn-outline font-bold hover:scale-105 transition-transform duration-200 active:scale-95">
+       Islands
+    </a>
+  </li>
+</ul>
    <!-- cards section -->
     <section class="flex items-center justify-center w-full px-4 py-10">
      <div id="destination-cards" class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
@@ -180,7 +288,7 @@
 
     <!-- Kuakata -->
     <div class="card bg-base-100 shadow-lg" data-category="beach allDestinations">
-      <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Kuakata" class="rounded-t-lg" /></figure>
+      <figure><img src="/images/bangladesh-places-11-1024x683.jpg" alt="Kuakata" class="rounded-t-lg" /></figure>
       <div class="card-body">
         <h2 class="card-title text-warning font-extrabold">Kuakata</h2>
         <p>The “Daughter of the Sea,” famous for both sunrise and sunset views.</p>
@@ -222,7 +330,7 @@
 
     <!-- Sonargaon -->
     <div class="card bg-base-100 shadow-lg" data-category="heritage museum allDestinations">
-      <figure><img src="/images/bangladesh-places-12-1024x683.jpg" alt="Sonargaon" class="rounded-t-lg" /></figure>
+      <figure><img src="/images/bangladesh-places-13-1024x683.jpg" alt="Sonargaon" class="rounded-t-lg" /></figure>
       <div class="card-body">
         <h2 class="card-title text-warning font-extrabold">Sonargaon</h2>
         <p>Ancient capital with Panam City ruins and folk art museum.</p>
@@ -247,8 +355,8 @@
         </div>
       </div>
     </div>
-
-  </section>
+    
+</section>
 </div>
     </section>
  

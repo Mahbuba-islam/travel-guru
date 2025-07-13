@@ -140,11 +140,12 @@ else{
 document.getElementById('search-destination').addEventListener('keydown', (e) => {
   const searchValue = e.target.value.trim().toUpperCase();
   const cards = document.querySelectorAll('.card');
+  const carosouleItems = document.querySelectorAll('.carousel-item');
   let matchCount = 0;
 
   cards.forEach(card => {
     const cardTitle = card.querySelector('.card-title');
-    const cardTitleText = cardTitle.innerText.trim().toUpperCase();
+    const cardTitleText = cardTitle?.innerText.trim().toUpperCase();
 
     if (cardTitleText.includes(searchValue)) {
       card.style.display = 'grid';
@@ -154,11 +155,26 @@ document.getElementById('search-destination').addEventListener('keydown', (e) =>
       
     }
   });
-  const message = `
-        <div class="text-white font-bold p-4 bg-warning rounded-md">
+
+ carosouleItems.forEach(carosoul => {
+    console.log(carosoul)
+    const carosoulTitle = carosoul.querySelector('.title');
+    console.log(carosoulTitle)
+    const carosoulTitleText = carosoulTitle?.innerText.trim().toUpperCase();
+
+    if (carosoulTitleText.includes(searchValue)) {
+      carosoul.classList.add = 'carosoul';
+      matchCount++;
+    } else {
+      carosoul.style.display = 'none'
+      
+    }
+  });
+
+  const message  =  `<div class="text-white font-bold p-4 bg-warning rounded-md">
           Sorry, no destinations matched your search. Try exploring other places!
-        </div>
-      `;
+        </div>`
+  
   handleFallBackMessage(matchCount,message)
 
   });
@@ -273,17 +289,18 @@ const addAndRemoveActiveColor = (classes) => {
 
 const showCategoryData = (name) => {
   const cards = document.querySelectorAll('.card');
+  const carouselItems = document.querySelectorAll('.carousel-item')
   let matchCount = 0;
 
    addAndRemoveActiveColor('.category-btn')
    
   
   cards.forEach(card => {
-    const category = card.dataset.category.toLowerCase(); // e.g. "beach", "heritage museum"
+    const category = card.dataset.category?.toLowerCase(); // e.g. "beach", "heritage museum"
  
     
     // Check if the selected name matches any part of the category string
-    const matches = category.includes(name?.toLowerCase());
+    const matches = category?.includes(name?.toLowerCase());
 
     if (matches) {
       card.style.display = 'grid';
@@ -292,9 +309,22 @@ const showCategoryData = (name) => {
       card.style.display = 'none'; 
     }
   });
+
+  carouselItems.forEach(i => {
+    const carasoulCategory = i.dataset.category?.toLowerCase();
+    const matches = carasoulCategory ?.includes(name?.toLowerCase());
+     if (matches) {
+      i.classList.remove('hidden');
+      matchCount++;
+    } else {
+      i.classList.add('hidden');
+    }
+
+  })
   const message = `
-        <div class="text-white font-bold p-4 bg-warning rounded-md">
-          No destinations found for "${name}". Try another category!
+        <div class="font-bold p-4 text-red-600 text-lg">
+          No destinations found for <span class="text-warning font-extrabold text-xl">"${name}".</span>  
+          <p class="font-bold text-black">Try another category!</p>
         </div>
       `;
 
@@ -304,29 +334,60 @@ const showCategoryData = (name) => {
 };
 
 
-// fallback message
-const handleFallBackMessage = (matchCount,message) => {
-  const destinationCards = document.getElementById('destination-cards')
-  const existingfallbackMessage = document.getElementById('fall-back-message')
 
-  if(matchCount === 0 && !existingfallbackMessage){
-   const fallbackMessage = document.createElement('div')
-   fallbackMessage.id = 'fall-back-message'
-   fallbackMessage.innerHTML  = message
-   destinationCards.appendChild(fallbackMessage)
-   destinationCards.classList.remove('grid')
-  }
-  else{
-    if(existingfallbackMessage){
-  destinationCards.removeChild(existingfallbackMessage)
-  
+
+// ✅ Updated handleFallBackMessage with Dual Placement & Animation
+const handleFallBackMessage = (matchCount, message) => {
+  const destinationCards = document.getElementById('destination-cards');
+  const carosoulitems = document.getElementById('carosoul-items');
+
+  // Remove old fallback messages
+  document.querySelectorAll('#fall-back-message').forEach(el => el.remove());
+
+  if (matchCount === 0) {
+    const createFallbackMessage = () => {
+      const fallbackMessage = document.createElement('div');
+      fallbackMessage.id = 'fall-back-message';
+      fallbackMessage.classList.add(
+         'bg-base-100', 'shadow-lg', 'text-center', 'w-1/2', 'mx-auto',
+        'opacity-0', 'animate-fadeIn', 'transition-opacity', 'duration-700'
+      );
+      fallbackMessage.innerHTML = `
+        <p class="text-lg font-semibold mt-4">${message}</p>
+        <figure>
+         <img src="/images/no results found.jpg" alt="No results found" />
+        </figure>
+        <div class="">
+          <div class=" mt-4 justify-center items-center">
+            <button class="btn btn-outline btn-lg font-semibold animate-bounce-slow" onclick="showCategoryData('allDestinations')">
+              See All Destinations
+            </button>
+          </div>
+        </div>
+      `;
+      return fallbackMessage;
+    };
+
+    if (destinationCards) {
+      const fallbackForCards = createFallbackMessage();
+      destinationCards.appendChild(fallbackForCards);
+      destinationCards.classList.remove('grid');
+      requestAnimationFrame(() => fallbackForCards.classList.remove('opacity-0'));
     }
-     destinationCards.classList.add('grid')
-    
+
+    if (carosoulitems) {
+      const fallbackForCarousel = createFallbackMessage();
+      carosoulitems.appendChild(fallbackForCarousel);
+      carosoulitems.classList.remove('carousel');
+      requestAnimationFrame(() => fallbackForCarousel.classList.remove('opacity-0'));
+    }
+  } else {
+    destinationCards?.classList.add('grid');
+    carosoulitems?.classList.add('carousel');
   }
- 
-}
+};
+
 
 showCategoryData('allDestinations')
 
-
+ showCategoryData('allDestinations')
