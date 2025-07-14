@@ -30,7 +30,7 @@
       </div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        class="menu menu-sm dropdown-content bg-warning rounded-box z-1 mt-3 w-52 p-2 shadow text-black font-bold">
         <li><a>Destinations</a></li>
       <li><a>Beach</a></li>
       <li><a>Mountain</a></li>
@@ -38,7 +38,7 @@
       <li><a>Login</a></li>
       </ul>
     </div>
-   <img class="btn bg-white p-2" src="/logo.png" alt="">
+   <img class="btn bg-white p-2 md:block hidden" src="/logo.png" alt="">
   
   </div>
      <!-- search -->
@@ -75,13 +75,12 @@
       </nav>
        
   <!-- hero section -->
+  
    <section class="container mx-auto flex relative z-10 my-12 justify-between">
     <!-- hero-content -->
      
-    <div id="hero-content" class="text-white  space-y-2 ">
-    <!-- <h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">Ready to explore?</h1>
-    <p class="text-xs md:text-sm w-[455px] font-bold">Click any destination card to start your booking journey!..</p> -->
-    
+    <div id="hero-content" class="text-white  space-y-2 hidden md:block">
+   
     </div>
     <!-- caropsoul -->
 
@@ -89,119 +88,137 @@
  
   <!-- item -1 -->
   <div class="carousel-item w-[200px]  h-[350px] relative" data-category="beach allDestinations">
-    <h1 class="title absolute bottom-5 left-5 text-white font-bold text-xl z-10">Coxs bazar</h1>
+    <h1 class="title absolute bottom-23 left-5 text-white font-bold text-xl z-10">Coxs bazar</h1>
     <p class="hidden">Coxs Bazar, nestled along the southeastern coast of Bangladesh, is home to the world’s longest natural sea beach, 
       stretching over 120 kilometers along the Bay of Bengal
  </p>
-  <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳6,500</p>
+  <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳6,500</p>
     <img
       src="/images/Rectangle-1.png"
       class="rounded-lg object-cover"/>
-      <div class="absolute bg-black opacity-30 inset-0"></div>
+<div class="absolute bg-black opacity-30 inset-0"></div>
+<button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
     </div>
       <!-- item-2 -->
 <div class="carousel-item w-[200px]  h-[350px] relative " data-category="mountain allDestinations">
-    <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Sreemongol</h1>
+    <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl">Sreemongol</h1>
     <p class="hidden">Sreemangal, often called the “tea capital of Bangladesh,” is a lush,
        tranquil town nestled in the Sylhet division. It's famed for its rolling tea gardens, misty hills, and rich biodiversity. 
 </p>
-<p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳1,500</p>
+<p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳1,500</p>
     <img
       src="/images/Sreemongol.png"
       class="rounded-lg" />
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
   </div>
-
+  
     <div  class="carousel-item w-[200px]  h-[350px] relative" data-category="mountain allDestinations">
-     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Sundorbon</h1>
+     <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl">Sundorbon</h1>
      <p class="hidden">The Sundarbans is a spellbinding natural wonder—the largest mangrove forest in the world, straddling the delta region of Bangladesh and eastern India where the Ganges, Brahmaputra, and Meghna rivers meet the Bay of Bengal.
      </p>
-     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳ 3,500</p>
+     <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳ 3,500</p>
     <img
       src="/images/sundorbon.png"
       class="rounded-lg" />
+      <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
   </div>
   <!-- item-4 -->
   <div class="carousel-item w-[200px]  h-[350px] relative" data-category="beach allDestinations">
-     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Patenga Beach</h1>
+     <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl">Patenga Beach</h1>
      <p class="hidden">Patenga Beach is perfect for a relaxing day trip, cultural immersion, or scenic photography. 
       - Best visited in late afternoon or evening for sunset views.
 
      </p>
-     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳6,500</p>
+     <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳6,500</p>
     <img
       src="/images/PATEGGA BEACH.jpg"
       class="rounded-lg" />
+      <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
   </div>
 
    <!-- item-5 -->
   <div class="carousel-item w-[200px]  h-[350px] relative" data-category="mountain allDestinations">
-     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Keokradong</h1>
+     <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl">Keokradong</h1>
      <p class="hidden">Keokradong, located in the Bandarban district of southeastern Bangladesh, is a 
       majestic peak rising approximately 986 meters (3,235 feet) above sea level. Once considered the highest point in the country, it now ranks among the top three, with Saka Haphong officially recognized as the tallest. 
 
      </p>
-     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳5,500</p>
+     <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳5,500</p>
     <img
       src="/images/mountain.jpg"
       class="rounded-lg" />
+      <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
   </div>
   <!-- item-6 -->
   <div class="carousel-item w-[200px]  h-[350px] relative" data-category="beach allDestinations">
-     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">Kuakata Beach</h1>
+     <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl z-10">Kuakata Beach</h1>
      <p class="hidden">Kuakata Beach, often called the “Sagar Kannya” or “Daughter of the Sea”, is a 
       breathtaking sea beach located in the Patuakhali district on the southernmost tip of Bangladesh. 
 
      </p>
-     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳3,500</p>
+     <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳3,500</p>
     <img
       src="/images/bangladesh-places-11-1024x683.jpg"
       class="relative rounded-lg" />
       <div class="absolute inset-0 bg-black opacity-40"></div>
+      <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
   </div>
   
   <!-- item-7 -->
   <div class="carousel-item w-[200px]  h-[350px] relative" data-category="museum allDestinations">
-     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">National Museum</h1>
+     <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl z-10">National Museum</h1>
      <p class="hidden">Bangladesh National Museum originally founded as the Dhaka Museum on 20 March 1913.
 formally became the National Museum of Bangladesh in 1983.
 designed by architect Syed Mainul Hossain, known for the National Martyrs’ Memorial.
  </p>
-     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳9,500</p>
+     <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳9,500</p>
     <img
       src="/images/MUSEUM.jpg"
       class="relative rounded-lg" />
       <div class="absolute inset-0 bg-black opacity-40"></div>
+      <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
   </div>
   
   <!-- item-8 -->
   <div class="carousel-item w-[200px]  h-[350px] relative" data-category="museum allDestinations">
-     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">Sonargaon Folk Art </h1>
+     <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl z-10">Sonargaon Folk Art </h1>
      <p class="hidden">The Sonargaon Folk Art and Craft Museum, located in Narayanganj near Dhaka, is a cultural treasure
        founded by legendary artist Zainul Abedin in 1975. 
 </p>
 
-     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳6,500</p>
+     <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳6,500</p>
     
     <img
       src="/images/museum-4917179_1280.jpg"
       class="relative rounded-lg" />
       <!-- overlay -->
        <div class="absolute bg-black inset-0 opacity-25"></div>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
   </div>
   
   <!-- item-9 -->
   <div  class="carousel-item w-[200px]  h-[350px] relative" data-category="museum allDestinations">
-     <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl z-10">Liberation War Museum </h1>
+     <h1 class="title absolute bottom-23 left-5 font-bold text-white text-xl z-10">Liberation War Museum </h1>
      <p class="hidden">The Liberation War Museum, located in Agargaon, Dhaka, commemorates the historic 
       struggle of Bangladesh’s independence in 1971. 
 </p>
 
- <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳1,500</p>
+ <p class="price md:text-yellow-600 font-bold text-sm md:hidden block absolute bottom-16 left-5 text-white">Starting from ৳1,500</p>
     
     <img
       src="/images/hands-waving-flags-bangladesh.jpg"
       class="relative rounded-lg" />
         <div class="absolute inset-0 bg-black opacity-40"></div>
+        <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-5 ">Booking</button>
+       <button class="booking-btn btn btn-sm btn-warning font-bold text-black mt-4 z-10 absolute bottom-3 left-30">explore</button>
 
   </div>
   
@@ -220,16 +237,32 @@ designed by architect Syed Mainul Hossain, known for the National Martyrs’ Mem
   <span class="loading loading-spinner loading-lg text-warning"></span>
 </div>
    
-<!-- category and sorts-->
-  <ul class="flex flex-wrap justify-center gap-4 p-4 rounded-xl ">
-    <!-- sorts by name -->
-    <div class="dropdown mb-4 flex btn btn-outline bg-warning mr-4">
+<!-- sorts-->
+ <div class="flex justify-evenly w-full md:justify-between">
+<div class="dropdown mb-4 flex btn btn-outline bg-warning ">
   <label tabindex="0" class=" font-bold text-black">Sort By price</label>
   <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-yellow-600 rounded-box w-40 text-white font-bold space-y-3">
     <li class="btn btn-xs"><button onclick="sortsData('price', 'asc')">low to high</button></li>
     <li class="btn btn-xs"><button onclick="sortsData('price', 'dsc')">high to low</button></li>
   </ul>
 </div>
+
+<div class="dropdown mb-4 flex btn btn-outline bg-warning">
+  <label tabindex="0" class=" font-bold text-black">Sort By Name</label>
+  <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-yellow-600 rounded-box w-40 text-white font-bold space-y-3">
+    <li class="btn btn-xs"><button onclick="sortsData('name', 'asc')">A to Z</button></li>
+    <li class="btn btn-xs"><button onclick="sortsData('name', 'dsc')">Z to A</button></li>
+  </ul>
+</div>
+ </div>
+  
+ <!-- category  -->
+  <ul class="flex flex-wrap justify-center gap-4 p-4 rounded-xl ">
+    <!-- sorts by name -->
+   
+
+ <!-- sorts by name -->
+    
 
   <li>
     <a onclick="showCategoryData('allDestinations')" 
@@ -262,14 +295,7 @@ designed by architect Syed Mainul Hossain, known for the National Martyrs’ Mem
     </a>
   </li>
 
-  <!-- sorts by name -->
-    <div class="dropdown mb-4 flex btn btn-outline bg-warning ml-4">
-  <label tabindex="0" class=" font-bold text-black">Sort By Name</label>
-  <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-yellow-600 rounded-box w-40 text-white font-bold space-y-3">
-    <li class="btn btn-xs"><button onclick="sortsData('name', 'asc')">A to Z</button></li>
-    <li class="btn btn-xs"><button onclick="sortsData('name', 'dsc')">Z to A</button></li>
-  </ul>
-</div>
+ 
 </ul>
 
    <!-- cards section -->

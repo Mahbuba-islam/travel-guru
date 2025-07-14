@@ -30,8 +30,8 @@ carouselItems.forEach(i => {
         const destinationPrice = i.childNodes[5].innerText
         console.log(destinationPrice)
         const div = document.createElement('div')
-       div.innerHTML = `<h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
-    <p class="text-xs md:text-sm w-[455px] font-bold">${destinationDetails}</p>
+       div.innerHTML = `<h1 class=" text-lg  font-bold  lg:font-extrabold ">${destination}</h1>
+    <p class="text-xs md:text-sm font-bold">${destinationDetails}</p>
      <p class="price text-white font-bold text-sm">${destinationPrice}</p>
     <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
     heroContent.appendChild(div)
@@ -62,8 +62,9 @@ const defaultItem = () => {
 const destinationDetails = carouselItem.childNodes[3].innerText
         const destination = carouselItem.childNodes[1].innerText
     const div = document.createElement('div')
+    div.classList.add('w-1/2', 'md:w-full')
        div.innerHTML = `<h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
-    <p class="text-xs md:text-sm w-[455px] font-bold">${destinationDetails}</p>
+    <p class="text-xs md:text-sm font-bold ">${destinationDetails}</p>
     <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
     heroContent.appendChild(div)
     carouselItem .classList.add('border', 'border-warning', 'rounded-md', 'border-4')
@@ -108,8 +109,9 @@ if(userInfo){
     const navbarEnd = document.getElementById('navbarEnd')
      navbarEnd.innerHTML = `
     <div id="dropdown" class="dropdown">
-  <div tabindex="0" role="button" class="btn m-1 rounded-full btn-warning font-bold text-white">${userInfo.name.slice(0,1).toUpperCase()}</div>
-  <ul tabindex="0" class="dropdown-content menu bg-warning rounded-box z-1 shadow-sm space-y-2">
+  <div tabindex="0" role="button" class="btn mr-16 md:mr-0 md:m-1 rounded-full btn-warning font-bold text-white">${userInfo.name.slice(0,1).toUpperCase()}
+  </div>
+  <ul tabindex="0" class="dropdown-content menu bg-warning rounded-box z-1 shadow-sm space-y-2 mt-4">
     <li id="dashboard" class="font-bold text-xs"><a>Dashboard</a></li>
     <li id="logout" class="font-bold btn btn-xs"><a>Logout</a></li>
   </ul>
