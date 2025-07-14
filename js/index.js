@@ -1,3 +1,20 @@
+//  global spiner function
+const loadingSpiner = (duration=1000, callback= ()=> {}) => {
+ const spinerr = document.getElementById('loading-spinner')
+ if(!spinerr){
+  return
+ }
+ spinerr.classList.remove('hidden')
+
+ setTimeout(()=> {
+  spinerr.classList.add('hidden') //hide the spiner after time
+  callback() //run your custom function after loading
+ }, duration)
+}
+
+
+
+
 const carouselItems = document.querySelectorAll('.carousel-item')
    const heroContent = document.getElementById('hero-content')
 
@@ -10,9 +27,12 @@ carouselItems.forEach(i => {
         i.classList.add('border', 'border-warning', 'rounded-md', 'border-4')
        const destinationDetails = i.childNodes[3].innerText
         const destination = i.childNodes[1].innerText
+        const destinationPrice = i.childNodes[5].innerText
+        console.log(destinationPrice)
         const div = document.createElement('div')
        div.innerHTML = `<h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
     <p class="text-xs md:text-sm w-[455px] font-bold">${destinationDetails}</p>
+     <p class="price text-white font-bold text-sm">${destinationPrice}</p>
     <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
     heroContent.appendChild(div)
 
@@ -68,11 +88,14 @@ defaultItem()
 // login
 const loginBtn = document.getElementById('login-btn')
 const loginFunction = () => {
+  loadingSpiner(400, () => {
   loginBtn.innerText = 'login'
     loginBtn.classList.remove('rounded-full')
     loginBtn.addEventListener('click', () => {
  window.location.href = '/html/login.html'
 })
+})
+  
 }
 
 const activeUserData = localStorage.getItem('loggedInUser')
@@ -136,77 +159,82 @@ else{
 }
 
 
-// search
 document.getElementById('search-destination').addEventListener('keydown', (e) => {
-  const searchValue = e.target.value.trim().toUpperCase();
-  const cards = document.querySelectorAll('.card');
-  const carosouleItems = document.querySelectorAll('.carousel-item');
-  let matchCount = 0;
+  const input = e.target;
 
-  cards.forEach(card => {
-    const cardTitle = card.querySelector('.card-title');
-    const cardTitleText = cardTitle?.innerText.trim().toUpperCase();
+  // Only run search when Enter is pressed
+  if (e.key === 'Enter') {
+    const searchValue = input.value.trim().toUpperCase();
+    const cards = document.querySelectorAll('.card');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    let matchCount = 0;
+   
+    loadingSpiner(900, () => {
+      cards.forEach(card => {
+        const cardTitle = card.querySelector('.card-title');
+        const cardTitleText = cardTitle?.innerText.trim().toUpperCase();
 
-    if (cardTitleText.includes(searchValue)) {
-      card.style.display = 'grid';
-      matchCount++;
-    } else {
-      card.style.display = 'none';
-      
-    }
-  });
+        if (cardTitleText && cardTitleText.includes(searchValue)) {
+          card.style.display = 'grid';
+          matchCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
 
- carosouleItems.forEach(carosoul => {
-    console.log(carosoul)
-    const carosoulTitle = carosoul.querySelector('.title');
-    console.log(carosoulTitle)
-    const carosoulTitleText = carosoulTitle?.innerText.trim().toUpperCase();
+      carouselItems.forEach(carousel => {
+        const carouselTitle = carousel.querySelector('.title');
+        const carouselTitleText = carouselTitle?.innerText.trim().toUpperCase();
 
-    if (carosoulTitleText.includes(searchValue)) {
-      carosoul.classList.add = 'carosoul';
-      matchCount++;
-    } else {
-      carosoul.style.display = 'none'
-      
-    }
-  });
+        if (carouselTitleText && carouselTitleText.includes(searchValue)) {
+          carousel.style.display = 'block';
+          matchCount++;
+        } else {
+          carousel.style.display = 'none';
+        }
+      });
 
-  const message  =  `<div class="text-white font-bold p-4 bg-warning rounded-md">
+      const message = `
+        <div class="text-white font-bold p-4 bg-warning rounded-md">
           Sorry, no destinations matched your search. Try exploring other places!
-        </div>`
-  
-  handleFallBackMessage(matchCount,message)
+        </div>
+      `;
+      handleFallBackMessage(matchCount, message);
 
-  });
-
+      // ✅ Clear input only after full-word search (Enter key)
+      input.value = '';
+    });
+  }
+});
 // sort one way
-// const sortCards = (type, direction) => {                              
-//  const cards = Array.from(document.querySelectorAll('.card'))
-//  cards.sort((a,b) => {
-//   const valueA = type === 'price' ? getPrice(a) : getName(a)
-//   const valueb = type === 'price' ? getPrice(b) : getName(b)
-//   if(type === 'name'){
-//     return direction === 'asc'? valueA.localeCompare(valueb) : valueb.localeCompare(valueA)
-//   }
-//   else{
-//     return direction === 'asc' ? valueA - valueb : valueb - valueA
-//   }
-//  })
-//  cards.forEach(card => {
-//   card.parentNode.appendChild(card)
-//  })
-// }
+const sortsData = (type, direction) => { 
+const cards = Array.from(document.querySelectorAll('.card'))
+// sort cards
+ cards.sort((a,b) => {
+  const valueA = type === 'price' ? getPrice(a) : getName(a)
+  const valueb = type === 'price' ? getPrice(b) : getName(b)
+  if(type === 'name'){
+    return direction === 'asc'? valueA.localeCompare(valueb) : valueb.localeCompare(valueA)
+  }
+  else{
+    return direction === 'asc' ? valueA - valueb : valueb - valueA
+  }
+ })
+ cards.forEach(card => {
+  card.parentNode.appendChild(card)
+ })
+}
 
-// const getName = (card) => {
-//  const name = card.querySelector('.title').innerText.trim().toLowerCase()
-//  return name
-// }
+const getName = (card) => {
+ const name = card.querySelector('.card-title').innerText.trim().toLowerCase()
+ return name
+}
 
-// const getPrice = (card) => {
-//   const priceInput = card.querySelector('.text-yellow-600').innerText
-//   const price = priceInput.replace(/[^\d]/g, '')
-//   return parseInt(price)
-// }
+const getPrice = (card) => {
+  const priceInput = card.querySelector('.text-yellow-600').innerText
+  const price = priceInput.replace(/[^\d]/g, '')
+  return parseInt(price)
+}
 
 
 
@@ -214,55 +242,55 @@ document.getElementById('search-destination').addEventListener('keydown', (e) =>
 
 
 // sort another way
-const clickSortedBtn = () => {
-  const ids = ['price-asending', 'price-decending', 'name-asending', 'name-decending']
-  ids.forEach(id => {
-    const btn = document.getElementById(id)
-    btn.addEventListener('click', () => {
-      const cards = Array.from(document.querySelectorAll('.card'))
-      cards.sort((a,b) => {
-        let priceValueA = getPrize(a)
-        let priceValueB = getPrize(b)
-        let nameValueA= getName(a)
-        let nameValueB = getName(b)
-        if(id === 'price-asending') {
-        return priceValueA-priceValueB
-        }
-        if(id === 'price-decending'){
-        return priceValueB-priceValueA
-        } 
-        if(id === 'name-asending') {
-        return nameValueA.localeCompare(nameValueB)
-        }
-        if(id === 'name-decending'){
-       return nameValueB.localeCompare(nameValueA)
-        } 
+// const clickSortedBtn = () => {
+//   const ids = ['price-asending', 'price-decending', 'name-asending', 'name-decending']
+//   ids.forEach(id => {
+//     const btn = document.getElementById(id)
+//     btn.addEventListener('click', () => {
+//       const cards = Array.from(document.querySelectorAll('.card'))
+//       cards.sort((a,b) => {
+//         let priceValueA = getPrize(a)
+//         let priceValueB = getPrize(b)
+//         let nameValueA= getName(a)
+//         let nameValueB = getName(b)
+//         if(id === 'price-asending') {
+//         return priceValueA-priceValueB
+//         }
+//         if(id === 'price-decending'){
+//         return priceValueB-priceValueA
+//         } 
+//         if(id === 'name-asending') {
+//         return nameValueA.localeCompare(nameValueB)
+//         }
+//         if(id === 'name-decending'){
+//        return nameValueB.localeCompare(nameValueA)
+//         } 
 
-       })
+//        })
      
-     cards.forEach(card => {
-  card.parentNode.appendChild(card)
-  })
+//      cards.forEach(card => {
+//   card.parentNode.appendChild(card)
+//   })
     
-    })
+//     })
     
-  })
+//   })
  
  
-}
+// }
  
-const getPrize = (card) => {
- const priceInput = card.querySelector('.price')
- const price = priceInput.innerText.replace(/[^\d]/g, '')
- return parseInt(price)
-}
+// const getPrize = (card) => {
+//  const priceInput = card.querySelector('.price')
+//  const price = priceInput.innerText.replace(/[^\d]/g, '')
+//  return parseInt(price)
+// }
 
-const getName = (card) => {
- const name = card.querySelector('.title').innerText.trim().toLowerCase()
- return name
-}
+// const getName = (card) => {
+//  const name = card.querySelector('.title').innerText.trim().toLowerCase()
+//  return name
+// }
 
-clickSortedBtn()
+// clickSortedBtn()
 
 const addAndRemoveActiveColor = (classes) => {
    const allCategoryBtn = document.querySelectorAll(classes)
@@ -288,11 +316,12 @@ const addAndRemoveActiveColor = (classes) => {
 
 
 const showCategoryData = (name) => {
-  const cards = document.querySelectorAll('.card');
+  loadingSpiner(1000, ()=> {
+     const cards = document.querySelectorAll('.card');
   const carouselItems = document.querySelectorAll('.carousel-item')
   let matchCount = 0;
 
-   addAndRemoveActiveColor('.category-btn')
+   
    
   
   cards.forEach(card => {
@@ -331,6 +360,9 @@ const showCategoryData = (name) => {
   // Optional: fallback message if nothing matches
   handleFallBackMessage(matchCount, message)
 
+  })
+  addAndRemoveActiveColor('.category-btn')
+ 
 };
 
 
@@ -391,3 +423,4 @@ const handleFallBackMessage = (matchCount, message) => {
 showCategoryData('allDestinations')
 
  showCategoryData('allDestinations')
+

@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- header -->
-
+   
     
      <div class="relative  bg-[url('/images/Rectangle-1.png')]
  bg-cover bg-center w-full bg-opacity-25  ">
@@ -68,21 +68,9 @@
       </ul>
       
 </div>
-  <div id="navbarEnd" class="navbar-end mt-4">
+  <div id="navbarEnd" class="navbar-end flex justify-end space-x-8">
    
-<div class="dropdown dropdown-end mb-4 flex justify-end space-x-8">
-  <label tabindex="0" class="btn btn-warning font-bold text-black">Sort Options</label>
-  <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-yellow-600 rounded-box w-48">
-    <li><button id="price-asending">price: low to high</button></li>
-    <li><button id="price-decending">price: high to low</button></li>
-    <li><button id="name-asending">name: A to Z</button></li>
-    <li><button id="name-decending">name: Z to A</button></li>
-  </ul>
    <div id="login-btn"   class="btn btn-warning font-bold text-black ">Login</div> 
-</div>
-   
-
-  <!-- </div> -->
 </div>
       </nav>
        
@@ -105,6 +93,7 @@
     <p class="hidden">Coxs Bazar, nestled along the southeastern coast of Bangladesh, is home to the world’s longest natural sea beach, 
       stretching over 120 kilometers along the Bay of Bengal
  </p>
+  <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳6,500</p>
     <img
       src="/images/Rectangle-1.png"
       class="rounded-lg object-cover"/>
@@ -116,6 +105,7 @@
     <p class="hidden">Sreemangal, often called the “tea capital of Bangladesh,” is a lush,
        tranquil town nestled in the Sylhet division. It's famed for its rolling tea gardens, misty hills, and rich biodiversity. 
 </p>
+<p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳1,500</p>
     <img
       src="/images/Sreemongol.png"
       class="rounded-lg" />
@@ -125,7 +115,7 @@
      <h1 class="title absolute bottom-5 left-5 font-bold text-white text-xl">Sundorbon</h1>
      <p class="hidden">The Sundarbans is a spellbinding natural wonder—the largest mangrove forest in the world, straddling the delta region of Bangladesh and eastern India where the Ganges, Brahmaputra, and Meghna rivers meet the Bay of Bengal.
      </p>
-    
+     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳ 3,500</p>
     <img
       src="/images/sundorbon.png"
       class="rounded-lg" />
@@ -137,7 +127,7 @@
       - Best visited in late afternoon or evening for sunset views.
 
      </p>
-    
+     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳6,500</p>
     <img
       src="/images/PATEGGA BEACH.jpg"
       class="rounded-lg" />
@@ -150,7 +140,7 @@
       majestic peak rising approximately 986 meters (3,235 feet) above sea level. Once considered the highest point in the country, it now ranks among the top three, with Saka Haphong officially recognized as the tallest. 
 
      </p>
-    
+     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳5,500</p>
     <img
       src="/images/mountain.jpg"
       class="rounded-lg" />
@@ -162,7 +152,7 @@
       breathtaking sea beach located in the Patuakhali district on the southernmost tip of Bangladesh. 
 
      </p>
-    
+     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳3,500</p>
     <img
       src="/images/bangladesh-places-11-1024x683.jpg"
       class="relative rounded-lg" />
@@ -176,7 +166,7 @@
 formally became the National Museum of Bangladesh in 1983.
 designed by architect Syed Mainul Hossain, known for the National Martyrs’ Memorial.
  </p>
-    
+     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳9,500</p>
     <img
       src="/images/MUSEUM.jpg"
       class="relative rounded-lg" />
@@ -190,7 +180,7 @@ designed by architect Syed Mainul Hossain, known for the National Martyrs’ Mem
        founded by legendary artist Zainul Abedin in 1975. 
 </p>
 
-     </p>
+     <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳6,500</p>
     
     <img
       src="/images/museum-4917179_1280.jpg"
@@ -206,9 +196,7 @@ designed by architect Syed Mainul Hossain, known for the National Martyrs’ Mem
       struggle of Bangladesh’s independence in 1971. 
 </p>
 
-</p>
-
-     </p>
+ <p class="price text-yellow-600 font-bold text-sm hidden">Starting from ৳1,500</p>
     
     <img
       src="/images/hands-waving-flags-bangladesh.jpg"
@@ -226,17 +214,23 @@ designed by architect Syed Mainul Hossain, known for the National Martyrs’ Mem
     
   <!-- main -->
 <main class="container mx-auto">
-  <!-- category -->
-    <div class="dropdown dropdown-end mb-4 flex justify-end">
-  <label tabindex="0" class="btn btn-warning btn-sm font-bold text-black">Sort Options</label>
-  <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-yellow-600 rounded-box w-48">
-    <li><button id="price-asending">price: low to high</button></li>
-    <li><button id="price-decending">price: high to low</button></li>
-    <li><button id="name-asending">name: A to Z</button></li>
-    <li><button id="name-decending">name: Z to A</button></li>
+  
+  <!-- Global Loading Spinner -->
+<div id="loading-spinner" class="inset-0 bg-red-white bg-opacity-50 z-50 hidden  text-center">
+  <span class="loading loading-spinner loading-lg text-warning"></span>
+</div>
+   
+<!-- category and sorts-->
+  <ul class="flex flex-wrap justify-center gap-4 p-4 rounded-xl ">
+    <!-- sorts by name -->
+    <div class="dropdown mb-4 flex btn btn-outline bg-warning mr-4">
+  <label tabindex="0" class=" font-bold text-black">Sort By price</label>
+  <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-yellow-600 rounded-box w-40 text-white font-bold space-y-3">
+    <li class="btn btn-xs"><button onclick="sortsData('price', 'asc')">low to high</button></li>
+    <li class="btn btn-xs"><button onclick="sortsData('price', 'dsc')">high to low</button></li>
   </ul>
 </div>
-  <ul class="flex flex-wrap justify-center gap-4 p-4 rounded-xl ">
+
   <li>
     <a onclick="showCategoryData('allDestinations')" 
        class="category-btn btn btn-sm md:btn-md btn-outline font-bold hover:scale-105 transition-transform duration-200 active:scale-95">
@@ -267,7 +261,17 @@ designed by architect Syed Mainul Hossain, known for the National Martyrs’ Mem
        Islands
     </a>
   </li>
+
+  <!-- sorts by name -->
+    <div class="dropdown mb-4 flex btn btn-outline bg-warning ml-4">
+  <label tabindex="0" class=" font-bold text-black">Sort By Name</label>
+  <ul tabindex="0" class="dropdown-content z-[1] menu shadow bg-yellow-600 rounded-box w-40 text-white font-bold space-y-3">
+    <li class="btn btn-xs"><button onclick="sortsData('name', 'asc')">A to Z</button></li>
+    <li class="btn btn-xs"><button onclick="sortsData('name', 'dsc')">Z to A</button></li>
+  </ul>
+</div>
 </ul>
+
    <!-- cards section -->
     <section class="flex items-center justify-center w-full px-4 py-10">
      <div id="destination-cards" class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
@@ -408,6 +412,7 @@ designed by architect Syed Mainul Hossain, known for the National Martyrs’ Mem
 
 
 <script src="/js/index.js"></script>
+<script src="/js/utility.js"></script>
 </body>
  
 </html>
