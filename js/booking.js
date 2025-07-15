@@ -5,9 +5,9 @@ const user = JSON.parse(activeUserData)
 const userTravelInfo = JSON.parse(userTravelDetails)
  const destinationContainer = document.getElementById('destination-container')
     const div = document.createElement('div')
-    div.innerHTML = ` <h1  class="text-lg font-bold md:text-xl lg:font-extrabold text-warning">${userTravelInfo.destinationName}</h1>
-    <p class="text-xs md:text-sm md:w-[455px] font-bold">${userTravelInfo.detailsDestination}</p>
-    `
+    div.innerHTML =userTravelInfo.destinationName
+   
+    
      destinationContainer.innerHTML = ''
   destinationContainer.appendChild(div);
   
@@ -61,7 +61,7 @@ const showModal = () => {
           <form method="dialog">
            <button  class="btn bg-yellow-600 text-white w-full text-center border-0 mx-auto px-15">
            close</button>
-           <button  id="dashboard-btn" class="btn bg-yellow-600 text-white w-full text-center border-0 mx-auto px-15">
+           <button  id="dashboard-btn" class="btn bg-yellow-600 text-white w-full text-center border-0 mx-auto px-15 mt-3">
            go to dashboard</button>
 
           </form>

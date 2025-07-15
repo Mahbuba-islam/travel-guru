@@ -30,26 +30,31 @@ carouselItems.forEach(i => {
         const destinationPrice = i.childNodes[5].innerText
         console.log(destinationPrice)
         const div = document.createElement('div')
-       div.innerHTML = `<h1 class=" text-lg  font-bold  lg:font-extrabold ">${destination}</h1>
-    <p class="text-xs md:text-sm font-bold">${destinationDetails}</p>
+        div.classList.add('card')
+       div.innerHTML = `<div class="destination-details mr-4">
+       <h1 class=" text-lg  font-bold  lg:font-extrabold text-warning">${destination}</h1>
+    <p class="text-xs md:text-sm font-bold w-[400px]">${destinationDetails}</p>
      <p class="price text-white font-bold text-sm">${destinationPrice}</p>
-    <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
+       </div>
+    <button class="booking-btn btn btn-warning font-bold text-black mt-4 w-1/2 ">Booking ${destination}</button>`
     heroContent.appendChild(div)
-
-     const bookingBtn = document.querySelectorAll('.booking-btn')
-     bookingBtn.forEach(b => {
-        b.addEventListener('click' , () => {
-          const travelDetails = {
-           destinationName:destination,
-           detailsDestination:destinationDetails,
+ booking()
+    //  const bookingBtn = document.querySelectorAll('.booking-btn')
+    // console.log(bookingBtn)
+    //  bookingBtn.forEach(b => {
+    //     b.addEventListener('click' , () => {
+    //       console.log('click')
+    //       const travelDetails = {
+    //        destinationName:destination,
+    //        detailsDestination:destinationDetails,
            
-          }
-          console.log(userInfo)
-          localStorage.setItem('travelInfo', JSON.stringify(travelDetails) )
-          window.location.href = '/html/booking.html'
-        // navigateBooking(destination,destinationDetails)
-     })
-     })
+    //       }
+    //       console.log(userInfo)
+    //       localStorage.setItem('travelInfo', JSON.stringify(travelDetails) )
+    //       window.location.href = '/html/booking.html'
+    //     // navigateBooking(destination,destinationDetails)
+    //  })
+    //  })
 
     })
 console.log(heroContent)
@@ -57,20 +62,50 @@ console.log(heroContent)
 })
 
 
-const defaultItem = () => {
- const carouselItem = document.querySelector('.carousel-item')
-const destinationDetails = carouselItem.childNodes[3].innerText
-        const destination = carouselItem.childNodes[1].innerText
-    const div = document.createElement('div')
-    div.classList.add('w-1/2', 'md:w-full')
-       div.innerHTML = `<h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
-    <p class="text-xs md:text-sm font-bold ">${destinationDetails}</p>
-    <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
-    heroContent.appendChild(div)
-    carouselItem .classList.add('border', 'border-warning', 'rounded-md', 'border-4')
+// default carosoul
+// const defaultItem = () => {
+//  const carouselItem = document.querySelector('.carousel-item')
+// const destinationDetails = carouselItem.childNodes[3].innerText
+//         const destination = carouselItem.childNodes[1].innerText
+//     const div = document.createElement('div')
+//     div.classList.add('card','w-1/2', 'md:w-full')
+//        div.innerHTML = `<div class="destination-details">
+//        <h1 class="text-lg font-bold md:text-xl lg:font-extrabold ">${destination}</h1>
+//     <p class="text-xs md:text-sm font-bold ">${destinationDetails}</p>
+//        </div>
+//     <button class="booking-btn btn btn-warning font-bold text-black mt-4">Booking ${destination}</button>`
+//     heroContent.appendChild(div)
+//     carouselItem .classList.add('border', 'border-warning', 'rounded-md', 'border-4')
+//   booking()
+// }
 
-}
-defaultItem()
+
+// go to book
+const booking = () => {
+  const bookingBtns = document.querySelectorAll('.booking-btn');
+bookingBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Find the closest card container
+       const card = btn.closest('.card');
+       const destinationDEtails = card.querySelector('.destination-details');
+       const travelDetails = {
+          destinationName:destinationDEtails.innerHTML
+         
+        };
+
+        console.log(travelDetails);
+        localStorage.setItem('travelInfo', JSON.stringify(travelDetails));
+
+        // Redirect to booking page
+        window.location.href = '/html/booking.html';
+      
+    });
+  });
+};
+
+booking();
+
+
  
 
 
