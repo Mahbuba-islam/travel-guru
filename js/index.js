@@ -39,23 +39,7 @@ carouselItems.forEach(i => {
     <button class="booking-btn btn btn-warning font-bold text-black mt-4 w-1/2 ">Booking ${destination}</button>`
     heroContent.appendChild(div)
  booking()
-    //  const bookingBtn = document.querySelectorAll('.booking-btn')
-    // console.log(bookingBtn)
-    //  bookingBtn.forEach(b => {
-    //     b.addEventListener('click' , () => {
-    //       console.log('click')
-    //       const travelDetails = {
-    //        destinationName:destination,
-    //        detailsDestination:destinationDetails,
-           
-    //       }
-    //       console.log(userInfo)
-    //       localStorage.setItem('travelInfo', JSON.stringify(travelDetails) )
-    //       window.location.href = '/html/booking.html'
-    //     // navigateBooking(destination,destinationDetails)
-    //  })
-    //  })
-
+    
     })
 console.log(heroContent)
     
@@ -107,20 +91,6 @@ booking();
 
 
  
-
-
-// removeActiveBorder
-// const removeBorder = () => {
-//     carouselItems.forEach(i => {
-//         i.classList.remove('border', 'border-warning', 'rounded-md', 'border-4')
-//     })
-// }
-
-
-
-
-
-
 // login
 const loginBtn = document.getElementById('login-btn')
 const loginFunction = () => {
@@ -140,8 +110,7 @@ console.log(activeUserData)
 const userInfo = JSON.parse(activeUserData)
 
 if(userInfo){
-
-    const navbarEnd = document.getElementById('navbarEnd')
+ const navbarEnd = document.getElementById('navbarEnd')
      navbarEnd.innerHTML = `
     <div id="dropdown" class="dropdown">
   <div tabindex="0" role="button" class="btn mr-16 md:mr-0 md:m-1 rounded-full btn-warning font-bold text-white">${userInfo.name.slice(0,1).toUpperCase()}
@@ -219,17 +188,17 @@ document.getElementById('search-destination').addEventListener('keydown', (e) =>
         }
       });
 
-      carouselItems.forEach(carousel => {
-        const carouselTitle = carousel.querySelector('.title');
-        const carouselTitleText = carouselTitle?.innerText.trim().toUpperCase();
+      // carouselItems.forEach(carousel => {
+      //   const carouselTitle = carousel.querySelector('.title');
+      //   const carouselTitleText = carouselTitle?.innerText.trim().toUpperCase();
 
-        if (carouselTitleText && carouselTitleText.includes(searchValue)) {
-          carousel.style.display = 'block';
-          matchCount++;
-        } else {
-          carousel.style.display = 'none';
-        }
-      });
+      //   if (carouselTitleText && carouselTitleText.includes(searchValue)) {
+      //     carousel.style.display = 'block';
+      //     matchCount++;
+      //   } else {
+      //     carousel.style.display = 'none';
+      //   }
+      // });
 
       const message = `
         <div class="text-white font-bold p-4 bg-warning rounded-md">
@@ -418,13 +387,13 @@ const handleFallBackMessage = (matchCount, message) => {
       const fallbackMessage = document.createElement('div');
       fallbackMessage.id = 'fall-back-message';
       fallbackMessage.classList.add(
-         'bg-base-100', 'shadow-lg', 'text-center', 'w-1/2', 'mx-auto',
-        'opacity-0', 'animate-fadeIn', 'transition-opacity', 'duration-700'
+         'bg-base-100', 'shadow-lg', 'text-center', 'w-1/3', 'mx-auto',
+        'opacity-0', 'animate-fadeIn', 'rounded-md' , 'transition-opacity', 'p-6','duration-700'
       );
       fallbackMessage.innerHTML = `
         <p class="text-lg font-semibold mt-4">${message}</p>
         <figure>
-         <img src="/images/no results found.jpg" alt="No results found" />
+         <img class="w-1/2 mx-auto" src="/images/no results found.jpg" alt="No results found" />
         </figure>
         <div class="">
           <div class=" mt-4 justify-center items-center">
@@ -444,15 +413,15 @@ const handleFallBackMessage = (matchCount, message) => {
       requestAnimationFrame(() => fallbackForCards.classList.remove('opacity-0'));
     }
 
-    if (carosoulitems) {
-      const fallbackForCarousel = createFallbackMessage();
-      carosoulitems.appendChild(fallbackForCarousel);
-      carosoulitems.classList.remove('carousel');
-      requestAnimationFrame(() => fallbackForCarousel.classList.remove('opacity-0'));
-    }
+    // if (carosoulitems) {
+    //   const fallbackForCarousel = createFallbackMessage();
+    //   carosoulitems.appendChild(fallbackForCarousel);
+    //   carosoulitems.classList.remove('carousel');
+    //   requestAnimationFrame(() => fallbackForCarousel.classList.remove('opacity-0'));
+    // }
   } else {
     destinationCards?.classList.add('grid');
-    carosoulitems?.classList.add('carousel');
+    // carosoulitems?.classList.add('carousel');
   }
 };
 
@@ -461,3 +430,21 @@ showCategoryData('allDestinations')
 
  showCategoryData('allDestinations')
 
+// const showModal = (name) => {
+//   console.log('click')
+//   const card = document.querySelectorAll('.card')
+//   card.forEach(c => {
+//     console.log(c)
+//     const exploreModal = document.getElementById('explore_modal')
+//   console.log(name)
+//   exploreModal.innerHTML = `<div class="modal-box">
+//     <h3 class="text-lg font-bold">Hello!</h3>
+//     <p class="py-4">${c}</p>
+//   </div> 
+//   <form method="dialog" class="modal-backdrop">
+//     <button>close</button>
+//   </form>`
+//   })
+  
+//    exploreModal.showModal()
+// }
