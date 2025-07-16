@@ -133,7 +133,7 @@ if(user){
  if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
  localStorage.removeItem('loggedInUser')
- window.location.href = '/html/index.html'
+ window.location.href = '/index.html'
  navbarEnd.innerHTML = ''
  navbarEnd.innerHTML = `<a id="logIn" class="btn btn-warning font-bold text-black">Login</a>`
  document.getElementById('logIn').addEventListener('click', () => {

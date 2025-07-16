@@ -8,7 +8,7 @@ document.getElementById('login-id').addEventListener('click', () => {
   console.log(accountData)
   const accountInfo = accountData ? JSON.parse(accountData) : null;
   const accountPassword = accountInfo && accountInfo.password ? accountInfo.password.trim() : null;
-  const userName = accountInfo.firstName
+  const userName = accountInfo?.firstName
   if (!userNameValue || !loginPassword) {
     userNameInput.placeholder = 'required';
     userNameInput.classList.add('border', 'border-red-600');
@@ -17,11 +17,20 @@ document.getElementById('login-id').addEventListener('click', () => {
   } else if (!accountInfo) {
     const errorBox = document.getElementById('login-error');
     errorBox.textContent = 'User not found';
-    errorBox.classList.remove('hidden');
+     errorBox.classList.remove('hidden');
+     setTimeout(()=> {
+      clearInput('user-name')
+    clearInput('password')
+     },1500)
+     
   } else if (accountPassword !== loginPassword) {
     const errorBox = document.getElementById('login-error');
     errorBox.textContent = 'Incorrect username or password.';
     errorBox.classList.remove('hidden');
+    setTimeout(()=> {
+      clearInput('user-name')
+    clearInput('password')
+     },1500)
   } else {
     const userData = {
       name : userName,
@@ -29,13 +38,14 @@ document.getElementById('login-id').addEventListener('click', () => {
     };
     localStorage.setItem("loggedInUser", JSON.stringify(userData));
     
-  }
+  
 if(redirectUrl){
 localStorage.removeItem('redirectAfterLogin')
 window.location.href = redirectUrl
 }
 else{
 window.location.href = '/html/dashboard.html';
+}
 }
 
 });

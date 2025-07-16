@@ -6,7 +6,7 @@ const clearInput = (id) => {
 // back home
 const backToHome = () => {
 
-  window.location.href = '/html/index.html'
+  window.location.href = '/index.html'
 }
 
 

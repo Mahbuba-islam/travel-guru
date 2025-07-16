@@ -172,8 +172,7 @@ document.getElementById('search-destination').addEventListener('keydown', (e) =>
   if (e.key === 'Enter') {
     const searchValue = input.value.trim().toUpperCase();
     const cards = document.querySelectorAll('.card');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    let matchCount = 0;
+     let matchCount = 0;
    
     loadingSpiner(900, () => {
       cards.forEach(card => {
@@ -430,21 +429,3 @@ showCategoryData('allDestinations')
 
  showCategoryData('allDestinations')
 
-// const showModal = (name) => {
-//   console.log('click')
-//   const card = document.querySelectorAll('.card')
-//   card.forEach(c => {
-//     console.log(c)
-//     const exploreModal = document.getElementById('explore_modal')
-//   console.log(name)
-//   exploreModal.innerHTML = `<div class="modal-box">
-//     <h3 class="text-lg font-bold">Hello!</h3>
-//     <p class="py-4">${c}</p>
-//   </div> 
-//   <form method="dialog" class="modal-backdrop">
-//     <button>close</button>
-//   </form>`
-//   })
-  
-//    exploreModal.showModal()
-// }

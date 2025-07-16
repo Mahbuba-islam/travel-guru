@@ -17,12 +17,12 @@ if (activeUserEmail) {
 
 const logout = document.getElementById('logout').addEventListener('click', () => {
   localStorage.removeItem('loggedInUser')
- window.location.href = `/html/index.html`
+ window.location.href = `/index.html`
 })
 
 document.getElementById('back-home').addEventListener('click', () => {
   localStorage.setItem('loggedInUser', activeUserEmail )
- window.location.href = '/html/index.html'
+ window.location.href = '/index.html'
 })
 
 
